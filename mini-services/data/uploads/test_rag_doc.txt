@@ -1,0 +1,26 @@
+crabAI Technical Stack Overview
+
+This document describes the technical stack used in the crabAI RAG Agent demo project.
+
+Frontend:
+- Next.js 16 with App Router (the live preview at the sandbox)
+- Vue 3 + Vite (downloadable alternative frontend)
+- Tailwind CSS 4 for styling
+- shadcn/ui component library (New York style)
+
+Backend:
+- FastAPI running on port 8000
+- Python LangChain 1.x for agent orchestration
+- FAISS for the vector store (replaces InMemoryVectorStore)
+- Cloudflare Workers AI for embeddings (@cf/baai/bge-base-en-v1.5)
+- Groq openai/gpt-oss-20b as the LLM (temperature=0, reasoning_format=parsed)
+
+Document Pipeline:
+1. User uploads PDF or TXT through the /api/documents/upload endpoint
+2. Backend computes SHA-256 hash to detect changes
+3. If new/changed: PyPDFLoader reads the file, RecursiveCharacterTextSplitter chunks it (1000 chars, 200 overlap)
+4. Cloudflare Workers AI generates embeddings
+5. Embeddings are saved to FAISS (persistent on disk)
+6. Manifest JSON tracks file hashes so re-uploads are skipped
+7. RAG queries retrieve top-3 chunks from FAISS via similarity_search
+8. LLM gets the chunks as context and answers with [1] [2] [3] citations

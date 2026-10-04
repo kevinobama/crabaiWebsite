@@ -1,0 +1,19 @@
+crabAI Customer FAQ
+
+Q: What is crabAI?
+A: crabAI is a custom RAG and SQL Agent engineering service. We build production-grade
+retrieval-augmented generation systems and natural-language SQL agents for businesses.
+
+Q: How long does a typical project take?
+A: A Starter RAG MVP takes 2 weeks. A full Pro deployment (RAG + SQL) takes 4-5 weeks.
+Enterprise engagements with on-prem deployment take 6-12 weeks.
+
+Q: What's the pricing?
+A: Starter: $4,500 fixed. Pro: $12,000 fixed. Enterprise: custom scope.
+Annual support contracts are available.
+
+Q: What compliance standards do you support?
+A: SOC 2 Type II, GDPR, HIPAA, and FedRAMP. We can sign BAAs for regulated industries.
+
+Q: Where is the data stored?
+A: Wherever you want — your AWS, GCP, Azure, or on-prem. We never train on customer data.

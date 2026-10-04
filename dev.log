@@ -1,0 +1,1251 @@
+▲ Next.js 16.3.8 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.0.111:3000
+- Environments: .env
+✓ Ready in 466ms
+⚠ Warning: Next.js ignored package-lock.json in /home/kevin because it would include your home directory (/home/kevin).
+ To use this directory, set `turbopack.root` in your Next.js config.
+
+✓ Running next.config.ts took 80ms
+
+○ Compiling / ...
+ GET / 200 in 4.2s (next.js: 3.8s, application-code: 352ms)
+Failed to proxy http://localhost:8000/api/documents Error: connect ECONNREFUSED 127.0.0.1:8000
+    at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8000) {
+  errno: -111,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '127.0.0.1',
+  port: 8000
+}
+Error: connect ECONNREFUSED 127.0.0.1:8000
+    at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8000) {
+  errno: -111,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '127.0.0.1',
+  port: 8000
+}
+Failed to proxy http://localhost:8000/api/documents/upload Error: connect ECONNREFUSED 127.0.0.1:8000
+    at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8000) {
+  errno: -111,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '127.0.0.1',
+  port: 8000
+}
+Error: connect ECONNREFUSED 127.0.0.1:8000
+    at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8000) {
+  errno: -111,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '127.0.0.1',
+  port: 8000
+}
+Failed to proxy http://localhost:8000/api/documents/upload Error: connect ECONNREFUSED 127.0.0.1:8000
+    at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8000) {
+  errno: -111,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '127.0.0.1',
+  port: 8000
+}
+Error: connect ECONNREFUSED 127.0.0.1:8000
+    at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8000) {
+  errno: -111,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '127.0.0.1',
+  port: 8000
+}
+ GET / 200 in 201ms (next.js: 15ms, application-code: 186ms)
+ GET / 200 in 188ms (next.js: 7ms, application-code: 182ms)
+ GET / 200 in 215ms (next.js: 8ms, application-code: 207ms)
+ GET / 200 in 217ms (next.js: 13ms, application-code: 204ms)
+✓ Compiled in 66ms
+ GET / 200 in 69ms (next.js: 18ms, application-code: 51ms)
+ GET / 200 in 138ms (next.js: 8ms, application-code: 130ms)
+✓ Compiled in 95ms
+ GET / 200 in 101ms (next.js: 47ms, application-code: 54ms)
+ GET / 200 in 148ms (next.js: 7ms, application-code: 140ms)
+✓ Compiled in 169ms
+ GET / 200 in 44ms (next.js: 7ms, application-code: 37ms)
+ GET / 200 in 222ms (next.js: 7ms, application-code: 215ms)
+ GET / 200 in 78ms (next.js: 16ms, application-code: 61ms)
+ GET / 200 in 39ms (next.js: 8ms, application-code: 31ms)
+Lead capture error: Error [PrismaClientInitializationError]: 
+Invalid `__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$db$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["db"].lead.create()` invocation in
+/home/kevin/kevindata/www/python/GLM-generateWebsite/.next/dev/server/chunks/[root-of-the-server]__0g381cq._.js:104:154
+
+  101         status: 400
+  102     });
+  103 }
+→ 104 const lead = await __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$db$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["db"].lead.create(
+Error querying the database: Error code 14: Unable to open the database file
+    at <unknown> (src/app/api/lead/route.ts:24:32)
+    at async POST (src/app/api/lead/route.ts:24:18)
+  22 |     }
+  23 |
+> 24 |     const lead = await db.lead.create({
+     |                                ^
+  25 |       data: {
+  26 |         name,
+  27 |         email, {
+  clientVersion: '6.19.3',
+  errorCode: undefined,
+  retryable: undefined
+}
+ POST /api/lead 500 in 917ms (next.js: 435ms, application-code: 482ms)
+ GET / 200 in 29ms (next.js: 4ms, application-code: 25ms)
+ GET / 200 in 150ms (next.js: 7ms, application-code: 143ms)
+ GET / 200 in 171ms (next.js: 6ms, application-code: 166ms)
+✓ Compiled in 124ms
+[browser] ./src/components/site/footer.tsx:2:1
+Error: Export CrabIcon doesn't exist in target module
+  1 | import { Github, Linkedin, Twitter, Mail } from "lucide-react";
+> 2 | import { CrabIcon } from "@/components/site/crab-icon";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { Lang } from "@/lib/i18n";
+  4 |
+  5 | // Footer is a server component — it can't use the hook, so we just render
+
+The export CrabIcon was not found in module [project]/src/components/site/crab-icon.tsx [app-rsc] (ecmascript).
+Did you mean to import CrabLogo?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/components/site/footer.tsx
+    ./src/app/page.tsx 
+[browser] ./src/components/site/header.tsx:9:1
+Error: Export CrabIcon doesn't exist in target module
+   7 | import { cn } from "@/lib/utils";
+   8 | import { useLang, type Lang } from "@/lib/i18n";
+>  9 | import { CrabIcon } from "@/components/site/crab-icon";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 |
+  11 | const NAV_LINKS: Record<Lang, { label: string; href: string }[]> = {
+  12 |   en: [
+
+The export CrabIcon was not found in module [project]/src/components/site/crab-icon.tsx [app-client] (ecmascript).
+Did you mean to import CrabLogo?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/components/site/header.tsx
+    ./src/app/page.tsx 
+[browser] ./src/components/site/header.tsx:9:1
+Error: Export CrabIcon doesn't exist in target module
+   7 | import { cn } from "@/lib/utils";
+   8 | import { useLang, type Lang } from "@/lib/i18n";
+>  9 | import { CrabIcon } from "@/components/site/crab-icon";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 |
+  11 | const NAV_LINKS: Record<Lang, { label: string; href: string }[]> = {
+  12 |   en: [
+
+The export CrabIcon was not found in module [project]/src/components/site/crab-icon.tsx [app-ssr] (ecmascript).
+Did you mean to import CrabLogo?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/components/site/header.tsx
+    ./src/app/page.tsx 
+[browser] ./src/components/site/footer.tsx:2:1
+Error: Export CrabIcon doesn't exist in target module
+  1 | import { Github, Linkedin, Twitter, Mail } from "lucide-react";
+> 2 | import { CrabIcon } from "@/components/site/crab-icon";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { Lang } from "@/lib/i18n";
+  4 |
+  5 | // Footer is a server component — it can't use the hook, so we just render
+
+The export CrabIcon was not found in module [project]/src/components/site/crab-icon.tsx [app-rsc] (ecmascript).
+Did you mean to import CrabLogo?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/components/site/footer.tsx
+    ./src/app/page.tsx 
+[browser] ./src/components/site/header.tsx:9:1
+Error: Export CrabIcon doesn't exist in target module
+   7 | import { cn } from "@/lib/utils";
+   8 | import { useLang, type Lang } from "@/lib/i18n";
+>  9 | import { CrabIcon } from "@/components/site/crab-icon";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 |
+  11 | const NAV_LINKS: Record<Lang, { label: string; href: string }[]> = {
+  12 |   en: [
+
+The export CrabIcon was not found in module [project]/src/components/site/crab-icon.tsx [app-client] (ecmascript).
+Did you mean to import CrabLogo?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/components/site/header.tsx
+    ./src/app/page.tsx 
+[browser] ./src/components/site/header.tsx:9:1
+Error: Export CrabIcon doesn't exist in target module
+   7 | import { cn } from "@/lib/utils";
+   8 | import { useLang, type Lang } from "@/lib/i18n";
+>  9 | import { CrabIcon } from "@/components/site/crab-icon";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 |
+  11 | const NAV_LINKS: Record<Lang, { label: string; href: string }[]> = {
+  12 |   en: [
+
+The export CrabIcon was not found in module [project]/src/components/site/crab-icon.tsx [app-ssr] (ecmascript).
+Did you mean to import CrabLogo?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/components/site/header.tsx
+    ./src/app/page.tsx 
+[browser] ./src/components/site/footer.tsx:2:1
+Error: Export CrabIcon doesn't exist in target module
+  1 | import { Github, Linkedin, Twitter, Mail } from "lucide-react";
+> 2 | import { CrabIcon } from "@/components/site/crab-icon";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { Lang } from "@/lib/i18n";
+  4 |
+  5 | // Footer is a server component — it can't use the hook, so we just render
+
+The export CrabIcon was not found in module [project]/src/components/site/crab-icon.tsx [app-rsc] (ecmascript).
+Did you mean to import CrabLogo?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/components/site/footer.tsx
+    ./src/app/page.tsx 
+[browser] ./src/components/site/header.tsx:9:1
+Error: Export CrabIcon doesn't exist in target module
+   7 | import { cn } from "@/lib/utils";
+   8 | import { useLang, type Lang } from "@/lib/i18n";
+>  9 | import { CrabIcon } from "@/components/site/crab-icon";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 |
+  11 | const NAV_LINKS: Record<Lang, { label: string; href: string }[]> = {
+  12 |   en: [
+
+The export CrabIcon was not found in module [project]/src/components/site/crab-icon.tsx [app-client] (ecmascript).
+Did you mean to import CrabLogo?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/components/site/header.tsx
+    ./src/app/page.tsx 
+[browser] ./src/components/site/header.tsx:9:1
+Error: Export CrabIcon doesn't exist in target module
+   7 | import { cn } from "@/lib/utils";
+   8 | import { useLang, type Lang } from "@/lib/i18n";
+>  9 | import { CrabIcon } from "@/components/site/crab-icon";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 |
+  11 | const NAV_LINKS: Record<Lang, { label: string; href: string }[]> = {
+  12 |   en: [
+
+The export CrabIcon was not found in module [project]/src/components/site/crab-icon.tsx [app-ssr] (ecmascript).
+Did you mean to import CrabLogo?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/components/site/header.tsx
+    ./src/app/page.tsx 
+[browser] ./src/components/site/footer.tsx:2:1
+Error: Export CrabIcon doesn't exist in target module
+  1 | import { Github, Linkedin, Twitter, Mail } from "lucide-react";
+> 2 | import { CrabIcon } from "@/components/site/crab-icon";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { Lang } from "@/lib/i18n";
+  4 |
+  5 | // Footer is a server component — it can't use the hook, so we just render
+
+The export CrabIcon was not found in module [project]/src/components/site/crab-icon.tsx [app-rsc] (ecmascript).
+Did you mean to import CrabLogo?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/components/site/footer.tsx
+    ./src/app/page.tsx 
+[browser] ./src/components/site/header.tsx:9:1
+Error: Export CrabIcon doesn't exist in target module
+   7 | import { cn } from "@/lib/utils";
+   8 | import { useLang, type Lang } from "@/lib/i18n";
+>  9 | import { CrabIcon } from "@/components/site/crab-icon";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 |
+  11 | const NAV_LINKS: Record<Lang, { label: string; href: string }[]> = {
+  12 |   en: [
+
+The export CrabIcon was not found in module [project]/src/components/site/crab-icon.tsx [app-client] (ecmascript).
+Did you mean to import CrabLogo?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/components/site/header.tsx
+    ./src/app/page.tsx 
+[browser] ./src/components/site/header.tsx:9:1
+Error: Export CrabIcon doesn't exist in target module
+   7 | import { cn } from "@/lib/utils";
+   8 | import { useLang, type Lang } from "@/lib/i18n";
+>  9 | import { CrabIcon } from "@/components/site/crab-icon";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 |
+  11 | const NAV_LINKS: Record<Lang, { label: string; href: string }[]> = {
+  12 |   en: [
+
+The export CrabIcon was not found in module [project]/src/components/site/crab-icon.tsx [app-ssr] (ecmascript).
+Did you mean to import CrabLogo?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/components/site/header.tsx
+    ./src/app/page.tsx 
+⨯ ./src/components/site/footer.tsx:2:1
+Error: Export CrabIcon doesn't exist in target module
+  [90m1 |[0m [36mimport[0m { [33mGithub[0m, [33mLinkedin[0m, [33mTwitter[0m, [33mMail[0m } [36mfrom[0m [32m"lucide-react"[0m;
+[31m[1m>[0m [90m2 |[0m [36mimport[0m { [33mCrabIcon[0m } [36mfrom[0m [32m"@/components/site/crab-icon"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m [36mimport[0m [36mtype[0m { [33mLang[0m } [36mfrom[0m [32m"@/lib/i18n"[0m;
+  [90m4 |[0m
+  [90m5 |[0m [90m// Footer is a server component — it can't use the hook, so we just render[0m
+
+The export CrabIcon was not found in module [project]/src/components/site/crab-icon.tsx [app-rsc] (ecmascript).
+Did you mean to import CrabLogo?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/components/site/footer.tsx
+    ./src/app/page.tsx
+
+
+
+./src/components/site/header.tsx:9:1
+Error: Export CrabIcon doesn't exist in target module
+  [90m 7 |[0m [36mimport[0m { cn } [36mfrom[0m [32m"@/lib/utils"[0m;
+  [90m 8 |[0m [36mimport[0m { useLang, [36mtype[0m [33mLang[0m } [36mfrom[0m [32m"@/lib/i18n"[0m;
+[31m[1m>[0m [90m 9 |[0m [36mimport[0m { [33mCrabIcon[0m } [36mfrom[0m [32m"@/components/site/crab-icon"[0m;
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m10 |[0m
+  [90m11 |[0m [36mconst[0m [33mNAV_LINKS[0m: [33mRecord[0m<[33mLang[0m, { label: string; href: string }[]> = {
+  [90m12 |[0m   en: [
+
+The export CrabIcon was not found in module [project]/src/components/site/crab-icon.tsx [app-client] (ecmascript).
+Did you mean to import CrabLogo?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/components/site/header.tsx
+    ./src/app/page.tsx
+
+
+
+./src/components/site/header.tsx:9:1
+Error: Export CrabIcon doesn't exist in target module
+  [90m 7 |[0m [36mimport[0m { cn } [36mfrom[0m [32m"@/lib/utils"[0m;
+  [90m 8 |[0m [36mimport[0m { useLang, [36mtype[0m [33mLang[0m } [36mfrom[0m [32m"@/lib/i18n"[0m;
+[31m[1m>[0m [90m 9 |[0m [36mimport[0m { [33mCrabIcon[0m } [36mfrom[0m [32m"@/components/site/crab-icon"[0m;
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m10 |[0m
+  [90m11 |[0m [36mconst[0m [33mNAV_LINKS[0m: [33mRecord[0m<[33mLang[0m, { label: string; href: string }[]> = {
+  [90m12 |[0m   en: [
+
+The export CrabIcon was not found in module [project]/src/components/site/crab-icon.tsx [app-ssr] (ecmascript).
+Did you mean to import CrabLogo?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/components/site/header.tsx
+    ./src/app/page.tsx
+
+
+ GET / 500 in 239ms (next.js: 103ms, application-code: 137ms)
+[browser] Uncaught Error: ./src/components/site/footer.tsx:2:1
+Error: Export CrabIcon doesn't exist in target module
+  1 | import { Github, Linkedin, Twitter, Mail } from "lucide-react";
+> 2 | import { CrabIcon } from "@/components/site/crab-icon";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { Lang } from "@/lib/i18n";
+  4 |
+  5 | // Footer is a server component — it can't use the hook, so we just render
+
+The export CrabIcon was not found in module [project]/src/components/site/crab-icon.tsx [app-rsc] (ecmascript).
+Did you mean to import CrabLogo?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/components/site/footer.tsx
+    ./src/app/page.tsx
+
+
+    at <unknown> (Error: ./src/components/site/footer.tsx:2:1)
+    at <unknown> (Error: (./src/components/site/footer.tsx:2:1)
+[browser] ./src/components/site/footer.tsx:2:1
+Error: Export CrabIcon doesn't exist in target module
+  1 | import { Github, Linkedin, Twitter, Mail } from "lucide-react";
+> 2 | import { CrabIcon } from "@/components/site/crab-icon";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { Lang } from "@/lib/i18n";
+  4 |
+  5 | // Footer is a server component — it can't use the hook, so we just render
+
+The export CrabIcon was not found in module [project]/src/components/site/crab-icon.tsx [app-rsc] (ecmascript).
+Did you mean to import CrabLogo?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/components/site/footer.tsx
+    ./src/app/page.tsx 
+[browser] ./src/components/site/header.tsx:9:1
+Error: Export CrabIcon doesn't exist in target module
+   7 | import { cn } from "@/lib/utils";
+   8 | import { useLang, type Lang } from "@/lib/i18n";
+>  9 | import { CrabIcon } from "@/components/site/crab-icon";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 |
+  11 | const NAV_LINKS: Record<Lang, { label: string; href: string }[]> = {
+  12 |   en: [
+
+The export CrabIcon was not found in module [project]/src/components/site/crab-icon.tsx [app-client] (ecmascript).
+Did you mean to import CrabLogo?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/components/site/header.tsx
+    ./src/app/page.tsx 
+[browser] ./src/components/site/header.tsx:9:1
+Error: Export CrabIcon doesn't exist in target module
+   7 | import { cn } from "@/lib/utils";
+   8 | import { useLang, type Lang } from "@/lib/i18n";
+>  9 | import { CrabIcon } from "@/components/site/crab-icon";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 |
+  11 | const NAV_LINKS: Record<Lang, { label: string; href: string }[]> = {
+  12 |   en: [
+
+The export CrabIcon was not found in module [project]/src/components/site/crab-icon.tsx [app-ssr] (ecmascript).
+Did you mean to import CrabLogo?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/components/site/header.tsx
+    ./src/app/page.tsx 
+[browser] ./src/components/site/footer.tsx:2:1
+Error: Export CrabIcon doesn't exist in target module
+  1 | import { Github, Linkedin, Twitter, Mail } from "lucide-react";
+> 2 | import { CrabIcon } from "@/components/site/crab-icon";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { Lang } from "@/lib/i18n";
+  4 |
+  5 | // Footer is a server component — it can't use the hook, so we just render
+
+The export CrabIcon was not found in module [project]/src/components/site/crab-icon.tsx [app-rsc] (ecmascript).
+Did you mean to import CrabLogo?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/components/site/footer.tsx
+    ./src/app/page.tsx 
+[browser] ./src/components/site/header.tsx:9:1
+Error: Export CrabIcon doesn't exist in target module
+   7 | import { cn } from "@/lib/utils";
+   8 | import { useLang, type Lang } from "@/lib/i18n";
+>  9 | import { CrabIcon } from "@/components/site/crab-icon";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 |
+  11 | const NAV_LINKS: Record<Lang, { label: string; href: string }[]> = {
+  12 |   en: [
+
+The export CrabIcon was not found in module [project]/src/components/site/crab-icon.tsx [app-client] (ecmascript).
+Did you mean to import CrabLogo?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/components/site/header.tsx
+    ./src/app/page.tsx 
+[browser] ./src/components/site/header.tsx:9:1
+Error: Export CrabIcon doesn't exist in target module
+   7 | import { cn } from "@/lib/utils";
+   8 | import { useLang, type Lang } from "@/lib/i18n";
+>  9 | import { CrabIcon } from "@/components/site/crab-icon";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 |
+  11 | const NAV_LINKS: Record<Lang, { label: string; href: string }[]> = {
+  12 |   en: [
+
+The export CrabIcon was not found in module [project]/src/components/site/crab-icon.tsx [app-ssr] (ecmascript).
+Did you mean to import CrabLogo?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/components/site/header.tsx
+    ./src/app/page.tsx 
+[browser] ./src/components/site/footer.tsx:2:1
+Error: Export CrabIcon doesn't exist in target module
+  1 | import { Github, Linkedin, Twitter, Mail } from "lucide-react";
+> 2 | import { CrabIcon } from "@/components/site/crab-icon";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { Lang } from "@/lib/i18n";
+  4 |
+  5 | // Footer is a server component — it can't use the hook, so we just render
+
+The export CrabIcon was not found in module [project]/src/components/site/crab-icon.tsx [app-rsc] (ecmascript).
+Did you mean to import CrabLogo?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/components/site/footer.tsx
+    ./src/app/page.tsx 
+[browser] ./src/components/site/header.tsx:9:1
+Error: Export CrabIcon doesn't exist in target module
+   7 | import { cn } from "@/lib/utils";
+   8 | import { useLang, type Lang } from "@/lib/i18n";
+>  9 | import { CrabIcon } from "@/components/site/crab-icon";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 |
+  11 | const NAV_LINKS: Record<Lang, { label: string; href: string }[]> = {
+  12 |   en: [
+
+The export CrabIcon was not found in module [project]/src/components/site/crab-icon.tsx [app-client] (ecmascript).
+Did you mean to import CrabLogo?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/components/site/header.tsx
+    ./src/app/page.tsx 
+[browser] ./src/components/site/header.tsx:9:1
+Error: Export CrabIcon doesn't exist in target module
+   7 | import { cn } from "@/lib/utils";
+   8 | import { useLang, type Lang } from "@/lib/i18n";
+>  9 | import { CrabIcon } from "@/components/site/crab-icon";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 |
+  11 | const NAV_LINKS: Record<Lang, { label: string; href: string }[]> = {
+  12 |   en: [
+
+The export CrabIcon was not found in module [project]/src/components/site/crab-icon.tsx [app-ssr] (ecmascript).
+Did you mean to import CrabLogo?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/components/site/header.tsx
+    ./src/app/page.tsx 
+[browser] ./src/components/site/crab-icon.tsx:9:21
+Error: Expected '(', got '-'
+   7 | }
+   8 |
+>  9 | export function crab-icon() {
+     |                     ^
+  10 |   return <img src="/crablogoandtext.png" alt="Crab AI" width={120} height={40} />;
+  11 | }
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Server Component:
+    ./src/components/site/crab-icon.tsx
+    ./src/components/site/footer.tsx
+    ./src/app/page.tsx
+
+  Client Component Browser:
+    ./src/components/site/crab-icon.tsx [Client Component Browser]
+    ./src/components/site/header.tsx [Client Component Browser]
+    ./src/components/site/header.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/site/crab-icon.tsx [Client Component SSR]
+    ./src/components/site/header.tsx [Client Component SSR]
+    ./src/components/site/header.tsx [Server Component]
+    ./src/app/page.tsx [Server Component] 
+[browser] ./src/components/site/footer.tsx:2:1
+Error: Export CrabIcon doesn't exist in target module
+  1 | import { Github, Linkedin, Twitter, Mail } from "lucide-react";
+> 2 | import { CrabIcon } from "@/components/site/crab-icon";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { Lang } from "@/lib/i18n";
+  4 |
+  5 | // Footer is a server component — it can't use the hook, so we just render
+
+The export CrabIcon was not found in module [project]/src/components/site/crab-icon.tsx [app-rsc] (ecmascript).
+Did you mean to import CrabLogo?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/components/site/footer.tsx
+    ./src/app/page.tsx 
+[browser] ./src/components/site/header.tsx:9:1
+Error: Export CrabIcon doesn't exist in target module
+   7 | import { cn } from "@/lib/utils";
+   8 | import { useLang, type Lang } from "@/lib/i18n";
+>  9 | import { CrabIcon } from "@/components/site/crab-icon";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 |
+  11 | const NAV_LINKS: Record<Lang, { label: string; href: string }[]> = {
+  12 |   en: [
+
+The export CrabIcon was not found in module [project]/src/components/site/crab-icon.tsx [app-client] (ecmascript).
+Did you mean to import CrabLogo?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/components/site/header.tsx
+    ./src/app/page.tsx 
+[browser] ./src/components/site/header.tsx:9:1
+Error: Export CrabIcon doesn't exist in target module
+   7 | import { cn } from "@/lib/utils";
+   8 | import { useLang, type Lang } from "@/lib/i18n";
+>  9 | import { CrabIcon } from "@/components/site/crab-icon";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 |
+  11 | const NAV_LINKS: Record<Lang, { label: string; href: string }[]> = {
+  12 |   en: [
+
+The export CrabIcon was not found in module [project]/src/components/site/crab-icon.tsx [app-ssr] (ecmascript).
+Did you mean to import CrabLogo?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/components/site/header.tsx
+    ./src/app/page.tsx 
+[browser] ./src/components/site/crab-icon.tsx:9:21
+Error: Expected '(', got '-'
+   7 | // }
+   8 |
+>  9 | export function crab-icon() {
+     |                     ^
+  10 |   return <img src="/crablogoandtext.png" alt="Crab AI" width={120} height={40} />;
+  11 | }
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Server Component:
+    ./src/components/site/crab-icon.tsx
+    ./src/components/site/footer.tsx
+    ./src/app/page.tsx
+
+  Client Component Browser:
+    ./src/components/site/crab-icon.tsx [Client Component Browser]
+    ./src/components/site/header.tsx [Client Component Browser]
+    ./src/components/site/header.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/site/crab-icon.tsx [Client Component SSR]
+    ./src/components/site/header.tsx [Client Component SSR]
+    ./src/components/site/header.tsx [Server Component]
+    ./src/app/page.tsx [Server Component] 
+[browser] ./src/components/site/footer.tsx:2:1
+Error: Export CrabIcon doesn't exist in target module
+  1 | import { Github, Linkedin, Twitter, Mail } from "lucide-react";
+> 2 | import { CrabIcon } from "@/components/site/crab-icon";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { Lang } from "@/lib/i18n";
+  4 |
+  5 | // Footer is a server component — it can't use the hook, so we just render
+
+The export CrabIcon was not found in module [project]/src/components/site/crab-icon.tsx [app-rsc] (ecmascript).
+Did you mean to import CrabLogo?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/components/site/footer.tsx
+    ./src/app/page.tsx 
+[browser] ./src/components/site/header.tsx:9:1
+Error: Export CrabIcon doesn't exist in target module
+   7 | import { cn } from "@/lib/utils";
+   8 | import { useLang, type Lang } from "@/lib/i18n";
+>  9 | import { CrabIcon } from "@/components/site/crab-icon";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 |
+  11 | const NAV_LINKS: Record<Lang, { label: string; href: string }[]> = {
+  12 |   en: [
+
+The export CrabIcon was not found in module [project]/src/components/site/crab-icon.tsx [app-client] (ecmascript).
+Did you mean to import CrabLogo?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/components/site/header.tsx
+    ./src/app/page.tsx 
+[browser] ./src/components/site/header.tsx:9:1
+Error: Export CrabIcon doesn't exist in target module
+   7 | import { cn } from "@/lib/utils";
+   8 | import { useLang, type Lang } from "@/lib/i18n";
+>  9 | import { CrabIcon } from "@/components/site/crab-icon";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 |
+  11 | const NAV_LINKS: Record<Lang, { label: string; href: string }[]> = {
+  12 |   en: [
+
+The export CrabIcon was not found in module [project]/src/components/site/crab-icon.tsx [app-ssr] (ecmascript).
+Did you mean to import CrabLogo?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/components/site/header.tsx
+    ./src/app/page.tsx 
+⨯ ./src/components/site/crab-icon.tsx:9:21
+Error: Expected '(', got '-'
+  [90m 7 |[0m [90m// }[0m
+  [90m 8 |[0m
+[31m[1m>[0m [90m 9 |[0m [36mexport[0m [36mfunction[0m crab-icon() {
+  [90m   |[0m                     [31m[1m^[0m
+  [90m10 |[0m   [36mreturn[0m <img src=[32m"/crablogoandtext.png"[0m alt=[32m"Crab AI"[0m width={[35m120[0m} height={[35m40[0m} />;
+  [90m11 |[0m }
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Server Component:
+    ./src/components/site/crab-icon.tsx
+    ./src/components/site/footer.tsx
+    ./src/app/page.tsx
+
+  Client Component Browser:
+    ./src/components/site/crab-icon.tsx [Client Component Browser]
+    ./src/components/site/header.tsx [Client Component Browser]
+    ./src/components/site/header.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/site/crab-icon.tsx [Client Component SSR]
+    ./src/components/site/header.tsx [Client Component SSR]
+    ./src/components/site/header.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+
+
+
+./src/components/site/footer.tsx:2:1
+Error: Export CrabIcon doesn't exist in target module
+  [90m1 |[0m [36mimport[0m { [33mGithub[0m, [33mLinkedin[0m, [33mTwitter[0m, [33mMail[0m } [36mfrom[0m [32m"lucide-react"[0m;
+[31m[1m>[0m [90m2 |[0m [36mimport[0m { [33mCrabIcon[0m } [36mfrom[0m [32m"@/components/site/crab-icon"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m [36mimport[0m [36mtype[0m { [33mLang[0m } [36mfrom[0m [32m"@/lib/i18n"[0m;
+  [90m4 |[0m
+  [90m5 |[0m [90m// Footer is a server component — it can't use the hook, so we just render[0m
+
+The export CrabIcon was not found in module [project]/src/components/site/crab-icon.tsx [app-rsc] (ecmascript).
+Did you mean to import CrabLogo?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/components/site/footer.tsx
+    ./src/app/page.tsx
+
+
+
+./src/components/site/header.tsx:9:1
+Error: Export CrabIcon doesn't exist in target module
+  [90m 7 |[0m [36mimport[0m { cn } [36mfrom[0m [32m"@/lib/utils"[0m;
+  [90m 8 |[0m [36mimport[0m { useLang, [36mtype[0m [33mLang[0m } [36mfrom[0m [32m"@/lib/i18n"[0m;
+[31m[1m>[0m [90m 9 |[0m [36mimport[0m { [33mCrabIcon[0m } [36mfrom[0m [32m"@/components/site/crab-icon"[0m;
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m10 |[0m
+  [90m11 |[0m [36mconst[0m [33mNAV_LINKS[0m: [33mRecord[0m<[33mLang[0m, { label: string; href: string }[]> = {
+  [90m12 |[0m   en: [
+
+The export CrabIcon was not found in module [project]/src/components/site/crab-icon.tsx [app-client] (ecmascript).
+Did you mean to import CrabLogo?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/components/site/header.tsx
+    ./src/app/page.tsx
+
+
+
+./src/components/site/header.tsx:9:1
+Error: Export CrabIcon doesn't exist in target module
+  [90m 7 |[0m [36mimport[0m { cn } [36mfrom[0m [32m"@/lib/utils"[0m;
+  [90m 8 |[0m [36mimport[0m { useLang, [36mtype[0m [33mLang[0m } [36mfrom[0m [32m"@/lib/i18n"[0m;
+[31m[1m>[0m [90m 9 |[0m [36mimport[0m { [33mCrabIcon[0m } [36mfrom[0m [32m"@/components/site/crab-icon"[0m;
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m10 |[0m
+  [90m11 |[0m [36mconst[0m [33mNAV_LINKS[0m: [33mRecord[0m<[33mLang[0m, { label: string; href: string }[]> = {
+  [90m12 |[0m   en: [
+
+The export CrabIcon was not found in module [project]/src/components/site/crab-icon.tsx [app-ssr] (ecmascript).
+Did you mean to import CrabLogo?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/components/site/header.tsx
+    ./src/app/page.tsx
+
+
+[browser] ./src/components/site/crab-icon.tsx:9:21
+Error: Expected '(', got '-'
+   7 | // }
+   8 |
+>  9 | export function crab-icon() {
+     |                     ^
+  10 |   return <img src="/crablogoandtext.png" alt="Crab AI" width={120} height={40} />;
+  11 | }
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Server Component:
+    ./src/components/site/crab-icon.tsx
+    ./src/components/site/footer.tsx
+    ./src/app/page.tsx
+
+  Client Component Browser:
+    ./src/components/site/crab-icon.tsx [Client Component Browser]
+    ./src/components/site/header.tsx [Client Component Browser]
+    ./src/components/site/header.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/site/crab-icon.tsx [Client Component SSR]
+    ./src/components/site/header.tsx [Client Component SSR]
+    ./src/components/site/header.tsx [Server Component]
+    ./src/app/page.tsx [Server Component] 
+[browser] ./src/components/site/footer.tsx:2:1
+Error: Export CrabIcon doesn't exist in target module
+  1 | import { Github, Linkedin, Twitter, Mail } from "lucide-react";
+> 2 | import { CrabIcon } from "@/components/site/crab-icon";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { Lang } from "@/lib/i18n";
+  4 |
+  5 | // Footer is a server component — it can't use the hook, so we just render
+
+The export CrabIcon was not found in module [project]/src/components/site/crab-icon.tsx [app-rsc] (ecmascript).
+Did you mean to import CrabLogo?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/components/site/footer.tsx
+    ./src/app/page.tsx 
+[browser] ./src/components/site/header.tsx:9:1
+Error: Export CrabIcon doesn't exist in target module
+   7 | import { cn } from "@/lib/utils";
+   8 | import { useLang, type Lang } from "@/lib/i18n";
+>  9 | import { CrabIcon } from "@/components/site/crab-icon";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 |
+  11 | const NAV_LINKS: Record<Lang, { label: string; href: string }[]> = {
+  12 |   en: [
+
+The export CrabIcon was not found in module [project]/src/components/site/crab-icon.tsx [app-client] (ecmascript).
+Did you mean to import CrabLogo?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/components/site/header.tsx
+    ./src/app/page.tsx 
+[browser] ./src/components/site/header.tsx:9:1
+Error: Export CrabIcon doesn't exist in target module
+   7 | import { cn } from "@/lib/utils";
+   8 | import { useLang, type Lang } from "@/lib/i18n";
+>  9 | import { CrabIcon } from "@/components/site/crab-icon";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 |
+  11 | const NAV_LINKS: Record<Lang, { label: string; href: string }[]> = {
+  12 |   en: [
+
+The export CrabIcon was not found in module [project]/src/components/site/crab-icon.tsx [app-ssr] (ecmascript).
+Did you mean to import CrabLogo?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/components/site/header.tsx
+    ./src/app/page.tsx 
+ GET / 500 in 96ms (next.js: 73ms, application-code: 22ms)
+[browser] ./src/components/site/crab-icon.tsx:9:21
+Error: Expected '(', got '-'
+   7 | // }
+   8 |
+>  9 | export function crab-icon() {
+     |                     ^
+  10 |   return <img src="/crablogoandtext.png" alt="Crab AI" width={120} height={40} />;
+  11 | }
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Server Component:
+    ./src/components/site/crab-icon.tsx
+    ./src/components/site/footer.tsx
+    ./src/app/page.tsx
+
+  Client Component Browser:
+    ./src/components/site/crab-icon.tsx [Client Component Browser]
+    ./src/components/site/header.tsx [Client Component Browser]
+    ./src/components/site/header.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/site/crab-icon.tsx [Client Component SSR]
+    ./src/components/site/header.tsx [Client Component SSR]
+    ./src/components/site/header.tsx [Server Component]
+    ./src/app/page.tsx [Server Component] 
+[browser] ./src/components/site/footer.tsx:2:1
+Error: Export CrabIcon doesn't exist in target module
+  1 | import { Github, Linkedin, Twitter, Mail } from "lucide-react";
+> 2 | import { CrabIcon } from "@/components/site/crab-icon";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { Lang } from "@/lib/i18n";
+  4 |
+  5 | // Footer is a server component — it can't use the hook, so we just render
+
+The export CrabIcon was not found in module [project]/src/components/site/crab-icon.tsx [app-rsc] (ecmascript).
+Did you mean to import CrabLogo?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/components/site/footer.tsx
+    ./src/app/page.tsx 
+[browser] ./src/components/site/header.tsx:9:1
+Error: Export CrabIcon doesn't exist in target module
+   7 | import { cn } from "@/lib/utils";
+   8 | import { useLang, type Lang } from "@/lib/i18n";
+>  9 | import { CrabIcon } from "@/components/site/crab-icon";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 |
+  11 | const NAV_LINKS: Record<Lang, { label: string; href: string }[]> = {
+  12 |   en: [
+
+The export CrabIcon was not found in module [project]/src/components/site/crab-icon.tsx [app-client] (ecmascript).
+Did you mean to import CrabLogo?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/components/site/header.tsx
+    ./src/app/page.tsx 
+[browser] ./src/components/site/header.tsx:9:1
+Error: Export CrabIcon doesn't exist in target module
+   7 | import { cn } from "@/lib/utils";
+   8 | import { useLang, type Lang } from "@/lib/i18n";
+>  9 | import { CrabIcon } from "@/components/site/crab-icon";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 |
+  11 | const NAV_LINKS: Record<Lang, { label: string; href: string }[]> = {
+  12 |   en: [
+
+The export CrabIcon was not found in module [project]/src/components/site/crab-icon.tsx [app-ssr] (ecmascript).
+Did you mean to import CrabLogo?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/components/site/header.tsx
+    ./src/app/page.tsx 
+[browser] Uncaught Error: ./src/components/site/crab-icon.tsx:9:21
+Error: Expected '(', got '-'
+   7 | // }
+   8 |
+>  9 | export function crab-icon() {
+     |                     ^
+  10 |   return <img src="/crablogoandtext.png" alt="Crab AI" width={120} height={40} />;
+  11 | }
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Server Component:
+    ./src/components/site/crab-icon.tsx
+    ./src/components/site/footer.tsx
+    ./src/app/page.tsx
+
+  Client Component Browser:
+    ./src/components/site/crab-icon.tsx [Client Component Browser]
+    ./src/components/site/header.tsx [Client Component Browser]
+    ./src/components/site/header.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/site/crab-icon.tsx [Client Component SSR]
+    ./src/components/site/header.tsx [Client Component SSR]
+    ./src/components/site/header.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+
+
+    at <unknown> (Error: ./src/components/site/crab-icon.tsx:9:21)
+    at <unknown> (Error: (./src/components/site/crab-icon.tsx:9:21)
+[browser] ./src/components/site/crab-icon.tsx:9:21
+Error: Expected '(', got '-'
+   7 | // }
+   8 |
+>  9 | export function crab-icon() {
+     |                     ^
+  10 |   return <img src="/crablogoandtext.png" alt="Crab AI" width={120} height={40} />;
+  11 | }
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Server Component:
+    ./src/components/site/crab-icon.tsx
+    ./src/components/site/footer.tsx
+    ./src/app/page.tsx
+
+  Client Component Browser:
+    ./src/components/site/crab-icon.tsx [Client Component Browser]
+    ./src/components/site/header.tsx [Client Component Browser]
+    ./src/components/site/header.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/site/crab-icon.tsx [Client Component SSR]
+    ./src/components/site/header.tsx [Client Component SSR]
+    ./src/components/site/header.tsx [Server Component]
+    ./src/app/page.tsx [Server Component] 
+[browser] ./src/components/site/footer.tsx:2:1
+Error: Export CrabIcon doesn't exist in target module
+  1 | import { Github, Linkedin, Twitter, Mail } from "lucide-react";
+> 2 | import { CrabIcon } from "@/components/site/crab-icon";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { Lang } from "@/lib/i18n";
+  4 |
+  5 | // Footer is a server component — it can't use the hook, so we just render
+
+The export CrabIcon was not found in module [project]/src/components/site/crab-icon.tsx [app-rsc] (ecmascript).
+Did you mean to import CrabLogo?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/components/site/footer.tsx
+    ./src/app/page.tsx 
+[browser] ./src/components/site/header.tsx:9:1
+Error: Export CrabIcon doesn't exist in target module
+   7 | import { cn } from "@/lib/utils";
+   8 | import { useLang, type Lang } from "@/lib/i18n";
+>  9 | import { CrabIcon } from "@/components/site/crab-icon";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 |
+  11 | const NAV_LINKS: Record<Lang, { label: string; href: string }[]> = {
+  12 |   en: [
+
+The export CrabIcon was not found in module [project]/src/components/site/crab-icon.tsx [app-client] (ecmascript).
+Did you mean to import CrabLogo?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/components/site/header.tsx
+    ./src/app/page.tsx 
+[browser] ./src/components/site/header.tsx:9:1
+Error: Export CrabIcon doesn't exist in target module
+   7 | import { cn } from "@/lib/utils";
+   8 | import { useLang, type Lang } from "@/lib/i18n";
+>  9 | import { CrabIcon } from "@/components/site/crab-icon";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 |
+  11 | const NAV_LINKS: Record<Lang, { label: string; href: string }[]> = {
+  12 |   en: [
+
+The export CrabIcon was not found in module [project]/src/components/site/crab-icon.tsx [app-ssr] (ecmascript).
+Did you mean to import CrabLogo?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/components/site/header.tsx
+    ./src/app/page.tsx 
+[browser] ./src/components/site/crab-icon.tsx:9:21
+Error: Expected '(', got '-'
+   7 | // }
+   8 |
+>  9 | export function crab-icon() {
+     |                     ^
+  10 |   return <img src="/crablogoandtext.png" alt="Crab AI" width={120} height={40} />;
+  11 | }
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Server Component:
+    ./src/components/site/crab-icon.tsx
+    ./src/components/site/footer.tsx
+    ./src/app/page.tsx
+
+  Client Component Browser:
+    ./src/components/site/crab-icon.tsx [Client Component Browser]
+    ./src/components/site/header.tsx [Client Component Browser]
+    ./src/components/site/header.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/site/crab-icon.tsx [Client Component SSR]
+    ./src/components/site/header.tsx [Client Component SSR]
+    ./src/components/site/header.tsx [Server Component]
+    ./src/app/page.tsx [Server Component] 
+[browser] ./src/components/site/footer.tsx:2:1
+Error: Export CrabIcon doesn't exist in target module
+  1 | import { Github, Linkedin, Twitter, Mail } from "lucide-react";
+> 2 | import { CrabIcon } from "@/components/site/crab-icon";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { Lang } from "@/lib/i18n";
+  4 |
+  5 | // Footer is a server component — it can't use the hook, so we just render
+
+The export CrabIcon was not found in module [project]/src/components/site/crab-icon.tsx [app-rsc] (ecmascript).
+Did you mean to import CrabLogo?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/components/site/footer.tsx
+    ./src/app/page.tsx 
+[browser] ./src/components/site/header.tsx:9:1
+Error: Export CrabIcon doesn't exist in target module
+   7 | import { cn } from "@/lib/utils";
+   8 | import { useLang, type Lang } from "@/lib/i18n";
+>  9 | import { CrabIcon } from "@/components/site/crab-icon";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 |
+  11 | const NAV_LINKS: Record<Lang, { label: string; href: string }[]> = {
+  12 |   en: [
+
+The export CrabIcon was not found in module [project]/src/components/site/crab-icon.tsx [app-client] (ecmascript).
+Did you mean to import CrabLogo?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/components/site/header.tsx
+    ./src/app/page.tsx 
+[browser] ./src/components/site/header.tsx:9:1
+Error: Export CrabIcon doesn't exist in target module
+   7 | import { cn } from "@/lib/utils";
+   8 | import { useLang, type Lang } from "@/lib/i18n";
+>  9 | import { CrabIcon } from "@/components/site/crab-icon";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 |
+  11 | const NAV_LINKS: Record<Lang, { label: string; href: string }[]> = {
+  12 |   en: [
+
+The export CrabIcon was not found in module [project]/src/components/site/crab-icon.tsx [app-ssr] (ecmascript).
+Did you mean to import CrabLogo?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/components/site/header.tsx
+    ./src/app/page.tsx 
+[browser] ./src/components/site/crab-icon.tsx:9:21
+Error: Expected '(', got '-'
+   7 | // }
+   8 |
+>  9 | export function crab-icon() {
+     |                     ^
+  10 |   return <img src="/crablogoandtext.png" alt="Crab AI" width={120} height={40} />;
+  11 | }
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Server Component:
+    ./src/components/site/crab-icon.tsx
+    ./src/components/site/footer.tsx
+    ./src/app/page.tsx
+
+  Client Component Browser:
+    ./src/components/site/crab-icon.tsx [Client Component Browser]
+    ./src/components/site/header.tsx [Client Component Browser]
+    ./src/components/site/header.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/site/crab-icon.tsx [Client Component SSR]
+    ./src/components/site/header.tsx [Client Component SSR]
+    ./src/components/site/header.tsx [Server Component]
+    ./src/app/page.tsx [Server Component] 
+[browser] ./src/components/site/footer.tsx:2:1
+Error: Export CrabIcon doesn't exist in target module
+  1 | import { Github, Linkedin, Twitter, Mail } from "lucide-react";
+> 2 | import { CrabIcon } from "@/components/site/crab-icon";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { Lang } from "@/lib/i18n";
+  4 |
+  5 | // Footer is a server component — it can't use the hook, so we just render
+
+The export CrabIcon was not found in module [project]/src/components/site/crab-icon.tsx [app-rsc] (ecmascript).
+Did you mean to import CrabLogo?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/components/site/footer.tsx
+    ./src/app/page.tsx 
+[browser] ./src/components/site/header.tsx:9:1
+Error: Export CrabIcon doesn't exist in target module
+   7 | import { cn } from "@/lib/utils";
+   8 | import { useLang, type Lang } from "@/lib/i18n";
+>  9 | import { CrabIcon } from "@/components/site/crab-icon";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 |
+  11 | const NAV_LINKS: Record<Lang, { label: string; href: string }[]> = {
+  12 |   en: [
+
+The export CrabIcon was not found in module [project]/src/components/site/crab-icon.tsx [app-client] (ecmascript).
+Did you mean to import CrabLogo?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/components/site/header.tsx
+    ./src/app/page.tsx 
+[browser] ./src/components/site/header.tsx:9:1
+Error: Export CrabIcon doesn't exist in target module
+   7 | import { cn } from "@/lib/utils";
+   8 | import { useLang, type Lang } from "@/lib/i18n";
+>  9 | import { CrabIcon } from "@/components/site/crab-icon";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 |
+  11 | const NAV_LINKS: Record<Lang, { label: string; href: string }[]> = {
+  12 |   en: [
+
+The export CrabIcon was not found in module [project]/src/components/site/crab-icon.tsx [app-ssr] (ecmascript).
+Did you mean to import CrabLogo?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/components/site/header.tsx
+    ./src/app/page.tsx 
+ GET / 200 in 200ms (next.js: 21ms, application-code: 179ms)
+ GET / 200 in 123ms (next.js: 4ms, application-code: 119ms)
+ GET / 200 in 119ms (next.js: 6ms, application-code: 113ms)
