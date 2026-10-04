@@ -1,4 +1,4 @@
-import { ref, computed, watchEffect } from "vue";
+import { ref, watchEffect } from "vue";
 
 export type Lang = "en" | "zh";
 

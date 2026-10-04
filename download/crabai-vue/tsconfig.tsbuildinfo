@@ -1,0 +1,1 @@
+{"root":["./src/main.ts","./src/vite-env.d.ts","./src/composables/useLang.ts","./src/lib/api.ts","./src/lib/strings.ts","./src/App.vue","./src/components/AgentDemo.vue"],"version":"5.9.3"}

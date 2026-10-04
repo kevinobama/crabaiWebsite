@@ -15,7 +15,7 @@ const question = ref("");
 const loading = ref(false);
 const result = ref<AgentResult | null>(null);
 const history = ref<{ q: string; r: AgentResult }[]>([]);
-const sqlOpen = ref(false);
+// const sqlOpen = ref(false);
 const scrollEl = ref<HTMLDivElement | null>(null);
 
 const Icon = computed(() => {
