@@ -3,6 +3,13 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Node modules
+node_modules/
+
+# Vector storage
+faiss_index/
+vectorstore/
+
 # C extensions
 *.so
 
