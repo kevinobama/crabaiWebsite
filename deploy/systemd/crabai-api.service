@@ -1,0 +1,57 @@
+# crabAI FastAPI backend — systemd service.
+#
+# Setup:
+#   1. Copy to /etc/systemd/system/crabai-api.service
+#   2. systemctl daemon-reload
+#   3. systemctl enable --now crabai-api
+#   4. systemctl status crabai-api
+#   5. journalctl -u crabai-api -f    (tail logs)
+
+[Unit]
+Description=crabAI FastAPI backend (RAG + SQL agents)
+After=network.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=crabai
+Group=crabai
+
+# Working directory — must contain the .env, app/, and pyproject.toml.
+WorkingDirectory=/opt/crabai-api
+
+# Path to the uv binary (run `which uv` if unsure).
+Environment=PATH=/usr/local/bin:/usr/bin:/bin
+
+# Run FastAPI with uvicorn — no reload in prod, more workers for throughput.
+# Tune --workers to ~2-4× your CPU core count.
+ExecStart=/usr/local/bin/uv run uvicorn app.main:app \
+    --host 127.0.0.1 \
+    --port 8000 \
+    --workers 2 \
+    --proxy-headers \
+    --forwarded-allow-ips=127.0.0.1
+
+# Auto-restart on crash.
+Restart=on-failure
+RestartSec=5
+
+# Hardening — FastAPI doesn't need root privileges.
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+ReadWritePaths=/opt/crabai-api/data
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectControlGroups=yes
+RestrictSUIDSGID=yes
+LockPersonality=yes
+
+# Logging.
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=crabai-api
+
+[Install]
+WantedBy=multi-user.target

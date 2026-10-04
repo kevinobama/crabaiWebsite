@@ -42,9 +42,6 @@ class FakeLLM(BaseChatModel):
         )
         question = last_user.content if last_user else "(no question)"
         note = (
-            "⚠️ Demo mode: GROQ_API_KEY not set.\n\n"
-            "Set GROQ_API_KEY (free at https://console.groq.com/keys) "
-            "to enable real LLM answers via Groq `openai/gpt-oss-20b`.\n\n"
             f"You asked: {question[:200]}"
         )
         from langchain_core.outputs import ChatGeneration, ChatResult
@@ -52,7 +49,6 @@ class FakeLLM(BaseChatModel):
 
 # nvidia
 def get_llm(temperature: float = 0.0) -> BaseChatModel:
-
     """
     Factory: prefer Groq if a key is set, else fall back to FakeLLM.
     Defaults match the user's RAG code: temperature=0, reasoning_format="parsed".
@@ -65,7 +61,6 @@ def get_llm(temperature: float = 0.0) -> BaseChatModel:
             top_p=1,
             max_completion_tokens=4096,
         )
-
     return FakeLLM()
 
 # Groq
