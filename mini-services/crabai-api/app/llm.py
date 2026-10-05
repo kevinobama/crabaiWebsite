@@ -16,6 +16,8 @@ from langchain_core.messages import AIMessage, BaseMessage
 from langchain_core.tools import BaseTool
 from langchain_groq import ChatGroq
 from langchain_nvidia_ai_endpoints import ChatNVIDIA
+from dotenv import load_dotenv
+load_dotenv()
 
 class FakeLLM(BaseChatModel):
     """
@@ -49,12 +51,7 @@ class FakeLLM(BaseChatModel):
 
 # nvidia
 def get_llm(temperature: float = 0.0) -> BaseChatModel:
-    """
-    Factory: prefer Groq if a key is set, else fall back to FakeLLM.
-    Defaults match the user's RAG code: temperature=0, reasoning_format="parsed".
-    """
     if os.getenv("NVIDIA_API_KEY"):
-        
         return ChatNVIDIA(
             model="openai/gpt-oss-20b",
             temperature=1,
@@ -65,7 +62,6 @@ def get_llm(temperature: float = 0.0) -> BaseChatModel:
 
 # Groq
 def get_llmGroq(temperature: float = 0.0) -> BaseChatModel:
-
     # os.environ["HTTPS_PROXY"] = "http://127.0.0.1:1080"
     # os.environ["HTTP_PROXY"] = "http://127.0.0.1:1080"
     # os.environ["NO_PROXY"] = "localhost,127.0.0.1"

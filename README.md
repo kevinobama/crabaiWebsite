@@ -280,6 +280,9 @@ npm i -g pm2
 pm2 start npm --name "myapp" -- start    # runs "npm start" → next start
 pm2 startup && pm2 save                  # auto-restart on reboot
 
+nohup uv run uvicorn app.main:app --host 127.0.0.1 --port 8000 --workers 2 --proxy-headers --forwarded-allow-ips=127.0.0.1 &
+
+
 
 
 

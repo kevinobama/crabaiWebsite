@@ -1,23 +1,9 @@
 {
-  "/home/z/my-project/mini-services/crabai-api/app/../../data/uploads/test_rag_doc.txt": {
-    "hash": "52df950acc58c19ea71d4d2904e6527c4c466d29d0fa2d1dcbe1e98afb641468",
-    "pages": 1,
-    "chunks": 2,
-    "uploaded_at": "2026-10-04T06:51:17.291215+00:00",
-    "filename": "test_rag_doc.txt"
-  },
-  "/home/z/my-project/mini-services/crabai-api/app/../../data/uploads/crabai_test.txt": {
-    "hash": "79a606a76c45138c2aec2f417147603b7d3504fa0b90f5c68289e08d6c27fb64",
-    "pages": 1,
-    "chunks": 1,
-    "uploaded_at": "2026-10-04T06:55:57.577246+00:00",
-    "filename": "crabai_test.txt"
-  },
-  "/home/kevin/kevindata/www/python/GLM-generateWebsite/mini-services/crabai-api/app/../../data/uploads/RAG-agent-and-SQL-agent.pdf": {
+  "/home/kevin/kevindata/www/python/crabaiWebsite/mini-services/crabai-api/app/../../data/uploads/RAG-agent-and-SQL-agent.pdf": {
     "hash": "e3663a89eeb8fae3a468872f3f5035179657336743bcfc014496f76408f9750f",
     "pages": 7,
     "chunks": 10,
-    "uploaded_at": "2026-10-04T07:28:36.101891+00:00",
+    "uploaded_at": "2026-10-05T05:08:05.193543+00:00",
     "filename": "RAG-agent-and-SQL-agent.pdf"
   }
 }
