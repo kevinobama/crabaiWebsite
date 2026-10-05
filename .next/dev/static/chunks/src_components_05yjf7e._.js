@@ -2305,7 +2305,7 @@ const T = {
             },
             {
                 q: "What's the smallest engagement you'll take?",
-                a: "The Starter tier ($4,500, 2 weeks) is the floor. Below that, you're better served by an off-the-shelf tool. For anything below 1 week of work I'll usually refer you to a vetted freelancer."
+                a: "The Starter tier (¥32,400, 2 weeks) is the floor. Below that, you're better served by an off-the-shelf tool. For anything below 1 week of work I'll usually refer you to a vetted freelancer."
             }
         ]
     },
@@ -2345,7 +2345,7 @@ const T = {
             },
             {
                 q: "你接的最小项目是多大？",
-                a: "入门版（$4,500，2 周）是下限。再小的话，用现成的工具更合适。1 周以内的小活我通常会推荐给靠谱的自由职业者。"
+                a: "入门版（¥32,400，2 周）是下限。再小的话，用现成的工具更合适。1 周以内的小活我通常会推荐给靠谱的自由职业者。"
             }
         ]
     }
@@ -3136,7 +3136,7 @@ const T = {
             {
                 name: "Starter",
                 tagline: "A working RAG MVP on your data",
-                price: "$4,500",
+                price: "¥32,400",
                 cadence: "fixed · 2 weeks",
                 highlight: false,
                 features: [
@@ -3154,7 +3154,7 @@ const T = {
             {
                 name: "Pro",
                 tagline: "Production RAG + SQL agent, fully integrated",
-                price: "$12,000",
+                price: "¥86,400",
                 cadence: "fixed · 4–5 weeks",
                 highlight: true,
                 features: [
@@ -3203,7 +3203,7 @@ const T = {
             {
                 name: "入门版",
                 tagline: "基于你的数据搭一个能用的 RAG MVP",
-                price: "$4,500",
+                price: "¥32,400",
                 cadence: "固定价 · 2 周",
                 highlight: false,
                 features: [
@@ -3221,7 +3221,7 @@ const T = {
             {
                 name: "专业版",
                 tagline: "生产级 RAG + SQL 智能体，完整集成",
-                price: "$12,000",
+                price: "¥86,400",
                 cadence: "固定价 · 4–5 周",
                 highlight: true,
                 features: [

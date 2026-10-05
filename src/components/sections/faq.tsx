@@ -52,7 +52,7 @@ const T: Record<Lang, {
       },
       {
         q: "What's the smallest engagement you'll take?",
-        a: "The Starter tier ($4,500, 2 weeks) is the floor. Below that, you're better served by an off-the-shelf tool. For anything below 1 week of work I'll usually refer you to a vetted freelancer.",
+        a: "The Starter tier (¥32,400, 2 weeks) is the floor. Below that, you're better served by an off-the-shelf tool. For anything below 1 week of work I'll usually refer you to a vetted freelancer.",
       },
     ],
   },
@@ -92,7 +92,7 @@ const T: Record<Lang, {
       },
       {
         q: "你接的最小项目是多大？",
-        a: "入门版（$4,500，2 周）是下限。再小的话，用现成的工具更合适。1 周以内的小活我通常会推荐给靠谱的自由职业者。",
+        a: "入门版（¥32,400，2 周）是下限。再小的话，用现成的工具更合适。1 周以内的小活我通常会推荐给靠谱的自由职业者。",
       },
     ],
   },

@@ -9,7 +9,7 @@ A: A Starter RAG MVP takes 2 weeks. A full Pro deployment (RAG + SQL) takes 4-5 
 Enterprise engagements with on-prem deployment take 6-12 weeks.
 
 Q: What's the pricing?
-A: Starter: $4,500 fixed. Pro: $12,000 fixed. Enterprise: custom scope.
+A: Starter: ¥32,400 fixed. Pro: ¥86,400 fixed. Enterprise: custom scope.
 Annual support contracts are available.
 
 Q: What compliance standards do you support?
