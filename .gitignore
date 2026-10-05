@@ -99,4 +99,4 @@ ollama/
 # Matplotlib
 .mpl
 
-.next
+*.log

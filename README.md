@@ -265,3 +265,21 @@ Want me to:
 1. Create a single `start.sh` script that launches both servers with one command?
 2. Add a `Makefile` with `make backend` / `make frontend` / `make dev` (both)?
 3. Walk through deploying this to a real server (VPS / Render / Railway)?
+
+
+# 1. Build the frontend
+cd /home/z/my-project/download/crabai-vue
+npm run build
+
+Run it with a process manager
+Option A: PM2 (easiest)
+bash
+Copy
+
+npm i -g pm2
+pm2 start npm --name "myapp" -- start    # runs "npm start" → next start
+pm2 startup && pm2 save                  # auto-restart on reboot
+
+
+
+
