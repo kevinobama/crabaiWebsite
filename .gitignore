@@ -100,3 +100,4 @@ ollama/
 .mpl
 
 *.log
+.next/dev/*
