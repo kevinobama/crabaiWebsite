@@ -242,7 +242,6 @@ export function AgentDemo({ mode }: { mode: AgentMode }) {
 
   const [question, setQuestion] = useState("");
   const [loading, setLoading] = useState(false);
-  const [result, setResult] = useState<Result | null>(null);
   const [history, setHistory] = useState<{ q: string; r: Result }[]>([]);
   const scrollRef = useRef<HTMLDivElement>(null);
 
@@ -323,12 +322,11 @@ export function AgentDemo({ mode }: { mode: AgentMode }) {
 
   useEffect(() => {
     scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: "smooth" });
-  }, [result, loading]);
+  }, [history, loading]);
 
   async function ask(q: string) {
     if (!q.trim() || loading) return;
     setLoading(true);
-    setResult(null);
 
     try {
       const res = await fetch(endpointFor(mode), {
@@ -346,10 +344,12 @@ export function AgentDemo({ mode }: { mode: AgentMode }) {
         ragSources: data.rag_sources,
         route: data.route,
       };
-      setResult(r);
+      // The latest history entry IS the current result — we don't use a
+      // separate `result` state to avoid rendering the answer twice.
       setHistory((h) => [...h, { q, r }].slice(-3));
     } catch {
-      setResult({ answer: t.networkError });
+      const err: Result = { answer: t.networkError };
+      setHistory((h) => [...h, { q, r: err }].slice(-3));
     } finally {
       setLoading(false);
     }
@@ -483,7 +483,7 @@ export function AgentDemo({ mode }: { mode: AgentMode }) {
           ref={scrollRef}
           className="max-h-[440px] min-h-[280px] space-y-4 overflow-y-auto p-4"
         >
-          {!result && !loading && history.length === 0 && (
+          {!loading && history.length === 0 && (
             <div className="flex h-full flex-col items-center justify-center gap-2 py-10 text-center">
               <div className="flex size-12 items-center justify-center rounded-full bg-accent/10">
                 <Icon className="size-6 text-accent" />
@@ -499,7 +499,7 @@ export function AgentDemo({ mode }: { mode: AgentMode }) {
           {history.map((h, i) => (
             <div key={i} className="space-y-2">
               <UserBubble q={h.q} />
-              <ResultBlock r={h.r} t={t} compact />
+              <ResultBlock r={h.r} t={t} />
             </div>
           ))}
 
@@ -512,13 +512,9 @@ export function AgentDemo({ mode }: { mode: AgentMode }) {
               </div>
             </div>
           )}
-
-          {result && !loading && (
-            <ResultBlock r={result} t={t} />
-          )}
         </div>
 
-        {history.length === 0 && !result && (
+        {history.length === 0 && !loading && (
           <div className="flex flex-wrap gap-2 px-4 pb-3">
             {t.samples[mode].map((q) => (
               <button

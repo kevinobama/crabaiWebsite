@@ -448,6 +448,24 @@ function LanguageProvider({ children }) {
     }["LanguageProvider.useEffect"], [
         lang
     ]);
+    // Sync <title> and <meta name="description"> with the active language so
+    // search engine crawlers that execute JS (Googlebot) see the localized
+    // version, and users who share the page on social get the right preview.
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
+        "LanguageProvider.useEffect": ()=>{
+            const TITLE = lang === "zh" ? "crabAI — 定制 RAG 与 SQL 智能体工程 | AI 工程师服务" : "crabAI — Custom RAG & SQL Agent Engineering | Hire an AI Engineer";
+            const DESC = lang === "zh" ? "雇佣私人 AI 工程师，为你的数据构建生产级定制 RAG 系统与自然语言 SQL 智能体。FAISS + Groq + LangChain。2 周交付 MVP。带引用、有评估、零幻觉。支持 SOC 2 / GDPR / HIPAA 合规。" : "Hire a private AI engineer to build production-grade custom RAG systems and natural-language SQL agents for your data. FAISS + Groq + LangChain. 2-week MVP. Citations, evals, zero hallucinations. SOC 2 / GDPR / HIPAA ready.";
+            document.title = TITLE;
+            const meta = document.querySelector('meta[name="description"]');
+            if (meta) meta.setAttribute("content", DESC);
+            const ogTitle = document.querySelector('meta[property="og:title"]');
+            if (ogTitle) ogTitle.setAttribute("content", TITLE);
+            const ogDesc = document.querySelector('meta[property="og:description"]');
+            if (ogDesc) ogDesc.setAttribute("content", DESC);
+        }
+    }["LanguageProvider.useEffect"], [
+        lang
+    ]);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(LanguageContext.Provider, {
         value: {
             lang,
@@ -457,11 +475,11 @@ function LanguageProvider({ children }) {
         children: children
     }, void 0, false, {
         fileName: "[project]/src/lib/i18n.tsx",
-        lineNumber: 62,
+        lineNumber: 82,
         columnNumber: 5
     }, this);
 }
-_s(LanguageProvider, "MnL7nQ9xGgB72dRkYe/lpJdLqFM=", false, function() {
+_s(LanguageProvider, "8nyhaZWsmtLMuuh8TNzwiyjKpOc=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useSyncExternalStore"]
     ];

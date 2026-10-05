@@ -78,6 +78,12 @@
       "regex": "^/api/lead(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/api/lead(?:/)?$"
+    },
+    {
+      "page": "/sitemap.xml",
+      "regex": "^/sitemap\\.xml(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/sitemap\\.xml(?:/)?$"
     }
   ],
   "dataRoutes": [],

@@ -3,5 +3,6 @@
   "/_not-found/page": "/_not-found",
   "/api/lead/route": "/api/lead",
   "/api/route": "/api",
-  "/page": "/"
+  "/page": "/",
+  "/sitemap.xml/route": "/sitemap.xml"
 }

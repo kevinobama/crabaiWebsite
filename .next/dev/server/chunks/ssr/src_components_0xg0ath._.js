@@ -205,7 +205,6 @@ function AgentDemo({ mode }) {
     const t = T[lang];
     const [question, setQuestion] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("");
     const [loading, setLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
-    const [result, setResult] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
     const [history, setHistory] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])([]);
     const scrollRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
     // RAG: document upload state
@@ -284,13 +283,12 @@ function AgentDemo({ mode }) {
             behavior: "smooth"
         });
     }, [
-        result,
+        history,
         loading
     ]);
     async function ask(q) {
         if (!q.trim() || loading) return;
         setLoading(true);
-        setResult(null);
         try {
             const res = await fetch(endpointFor(mode), {
                 method: "POST",
@@ -312,7 +310,8 @@ function AgentDemo({ mode }) {
                 ragSources: data.rag_sources,
                 route: data.route
             };
-            setResult(r);
+            // The latest history entry IS the current result — we don't use a
+            // separate `result` state to avoid rendering the answer twice.
             setHistory((h)=>[
                     ...h,
                     {
@@ -321,9 +320,16 @@ function AgentDemo({ mode }) {
                     }
                 ].slice(-3));
         } catch  {
-            setResult({
+            const err = {
                 answer: t.networkError
-            });
+            };
+            setHistory((h)=>[
+                    ...h,
+                    {
+                        q,
+                        r: err
+                    }
+                ].slice(-3));
         } finally{
             setLoading(false);
         }
@@ -657,7 +663,7 @@ function AgentDemo({ mode }) {
                         ref: scrollRef,
                         className: "max-h-[440px] min-h-[280px] space-y-4 overflow-y-auto p-4",
                         children: [
-                            !result && !loading && history.length === 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            !loading && history.length === 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "flex h-full flex-col items-center justify-center gap-2 py-10 text-center",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -716,8 +722,7 @@ function AgentDemo({ mode }) {
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(ResultBlock, {
                                             r: h.r,
-                                            t: t,
-                                            compact: true
+                                            t: t
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/sections/agent-demo.tsx",
                                             lineNumber: 502,
@@ -761,14 +766,6 @@ function AgentDemo({ mode }) {
                                 fileName: "[project]/src/components/sections/agent-demo.tsx",
                                 lineNumber: 507,
                                 columnNumber: 13
-                            }, this),
-                            result && !loading && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(ResultBlock, {
-                                r: result,
-                                t: t
-                            }, void 0, false, {
-                                fileName: "[project]/src/components/sections/agent-demo.tsx",
-                                lineNumber: 517,
-                                columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
@@ -776,7 +773,7 @@ function AgentDemo({ mode }) {
                         lineNumber: 482,
                         columnNumber: 9
                     }, this),
-                    history.length === 0 && !result && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    history.length === 0 && !loading && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "flex flex-wrap gap-2 px-4 pb-3",
                         children: t.samples[mode].map((q)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                 onClick: ()=>setQuestion(q),
@@ -784,12 +781,12 @@ function AgentDemo({ mode }) {
                                 children: q
                             }, q, false, {
                                 fileName: "[project]/src/components/sections/agent-demo.tsx",
-                                lineNumber: 524,
+                                lineNumber: 520,
                                 columnNumber: 15
                             }, this))
                     }, void 0, false, {
                         fileName: "[project]/src/components/sections/agent-demo.tsx",
-                        lineNumber: 522,
+                        lineNumber: 518,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -808,7 +805,7 @@ function AgentDemo({ mode }) {
                                         disabled: loading
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/sections/agent-demo.tsx",
-                                        lineNumber: 537,
+                                        lineNumber: 533,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -821,18 +818,18 @@ function AgentDemo({ mode }) {
                                             className: "size-4"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/sections/agent-demo.tsx",
-                                            lineNumber: 553,
+                                            lineNumber: 549,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/sections/agent-demo.tsx",
-                                        lineNumber: 546,
+                                        lineNumber: 542,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/sections/agent-demo.tsx",
-                                lineNumber: 536,
+                                lineNumber: 532,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -840,13 +837,13 @@ function AgentDemo({ mode }) {
                                 children: t.helper
                             }, void 0, false, {
                                 fileName: "[project]/src/components/sections/agent-demo.tsx",
-                                lineNumber: 556,
+                                lineNumber: 552,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/sections/agent-demo.tsx",
-                        lineNumber: 535,
+                        lineNumber: 531,
                         columnNumber: 9
                     }, this)
                 ]
@@ -870,12 +867,12 @@ function UserBubble({ q }) {
             children: q
         }, void 0, false, {
             fileName: "[project]/src/components/sections/agent-demo.tsx",
-            lineNumber: 566,
+            lineNumber: 562,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/components/sections/agent-demo.tsx",
-        lineNumber: 565,
+        lineNumber: 561,
         columnNumber: 5
     }, this);
 }
@@ -894,7 +891,7 @@ function ResultBlock({ r, t, compact = false }) {
                         className: "mt-0.5 size-3.5 shrink-0 text-accent"
                     }, void 0, false, {
                         fileName: "[project]/src/components/sections/agent-demo.tsx",
-                        lineNumber: 591,
+                        lineNumber: 587,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -902,13 +899,13 @@ function ResultBlock({ r, t, compact = false }) {
                         children: r.answer
                     }, void 0, false, {
                         fileName: "[project]/src/components/sections/agent-demo.tsx",
-                        lineNumber: 592,
+                        lineNumber: 588,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/sections/agent-demo.tsx",
-                lineNumber: 590,
+                lineNumber: 586,
                 columnNumber: 7
             }, this),
             r.route && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -919,12 +916,12 @@ function ResultBlock({ r, t, compact = false }) {
                     children: t.route(r.route)
                 }, void 0, false, {
                     fileName: "[project]/src/components/sections/agent-demo.tsx",
-                    lineNumber: 598,
+                    lineNumber: 594,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/components/sections/agent-demo.tsx",
-                lineNumber: 597,
+                lineNumber: 593,
                 columnNumber: 9
             }, this),
             hasSql && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$collapsible$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Collapsible"], {
@@ -942,7 +939,7 @@ function ResultBlock({ r, t, compact = false }) {
                                     className: "size-3"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/sections/agent-demo.tsx",
-                                    lineNumber: 609,
+                                    lineNumber: 605,
                                     columnNumber: 15
                                 }, this),
                                 t.showSql,
@@ -950,18 +947,18 @@ function ResultBlock({ r, t, compact = false }) {
                                     className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])("size-3 transition-transform", sqlOpen && "rotate-180")
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/sections/agent-demo.tsx",
-                                    lineNumber: 611,
+                                    lineNumber: 607,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/sections/agent-demo.tsx",
-                            lineNumber: 608,
+                            lineNumber: 604,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/components/sections/agent-demo.tsx",
-                        lineNumber: 607,
+                        lineNumber: 603,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$collapsible$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CollapsibleContent"], {
@@ -972,23 +969,23 @@ function ResultBlock({ r, t, compact = false }) {
                                 children: r.sql
                             }, void 0, false, {
                                 fileName: "[project]/src/components/sections/agent-demo.tsx",
-                                lineNumber: 618,
+                                lineNumber: 614,
                                 columnNumber: 15
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/src/components/sections/agent-demo.tsx",
-                            lineNumber: 617,
+                            lineNumber: 613,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/components/sections/agent-demo.tsx",
-                        lineNumber: 616,
+                        lineNumber: 612,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/sections/agent-demo.tsx",
-                lineNumber: 606,
+                lineNumber: 602,
                 columnNumber: 9
             }, this),
             hasRows && r.sqlColumns && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1001,14 +998,14 @@ function ResultBlock({ r, t, compact = false }) {
                                 className: "size-3"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/sections/agent-demo.tsx",
-                                lineNumber: 630,
+                                lineNumber: 626,
                                 columnNumber: 13
                             }, this),
                             t.results(r.sqlRows.length)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/sections/agent-demo.tsx",
-                        lineNumber: 629,
+                        lineNumber: 625,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1024,17 +1021,17 @@ function ResultBlock({ r, t, compact = false }) {
                                                 children: c
                                             }, c, false, {
                                                 fileName: "[project]/src/components/sections/agent-demo.tsx",
-                                                lineNumber: 638,
+                                                lineNumber: 634,
                                                 columnNumber: 21
                                             }, this))
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/sections/agent-demo.tsx",
-                                        lineNumber: 636,
+                                        lineNumber: 632,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/sections/agent-demo.tsx",
-                                    lineNumber: 635,
+                                    lineNumber: 631,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("tbody", {
@@ -1045,34 +1042,34 @@ function ResultBlock({ r, t, compact = false }) {
                                                     children: formatCell(row[j])
                                                 }, c, false, {
                                                     fileName: "[project]/src/components/sections/agent-demo.tsx",
-                                                    lineNumber: 648,
+                                                    lineNumber: 644,
                                                     columnNumber: 23
                                                 }, this))
                                         }, i, false, {
                                             fileName: "[project]/src/components/sections/agent-demo.tsx",
-                                            lineNumber: 646,
+                                            lineNumber: 642,
                                             columnNumber: 19
                                         }, this))
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/sections/agent-demo.tsx",
-                                    lineNumber: 644,
+                                    lineNumber: 640,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/sections/agent-demo.tsx",
-                            lineNumber: 634,
+                            lineNumber: 630,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/components/sections/agent-demo.tsx",
-                        lineNumber: 633,
+                        lineNumber: 629,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/sections/agent-demo.tsx",
-                lineNumber: 628,
+                lineNumber: 624,
                 columnNumber: 9
             }, this),
             !compact && sources.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1085,14 +1082,14 @@ function ResultBlock({ r, t, compact = false }) {
                                 className: "size-3"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/sections/agent-demo.tsx",
-                                lineNumber: 664,
+                                lineNumber: 660,
                                 columnNumber: 13
                             }, this),
                             t.sources
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/sections/agent-demo.tsx",
-                        lineNumber: 663,
+                        lineNumber: 659,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1107,7 +1104,7 @@ function ResultBlock({ r, t, compact = false }) {
                                                 className: "size-3"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/sections/agent-demo.tsx",
-                                                lineNumber: 671,
+                                                lineNumber: 667,
                                                 columnNumber: 19
                                             }, this),
                                             s.document,
@@ -1119,13 +1116,13 @@ function ResultBlock({ r, t, compact = false }) {
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/components/sections/agent-demo.tsx",
-                                                lineNumber: 674,
+                                                lineNumber: 670,
                                                 columnNumber: 21
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/sections/agent-demo.tsx",
-                                        lineNumber: 670,
+                                        lineNumber: 666,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1133,30 +1130,30 @@ function ResultBlock({ r, t, compact = false }) {
                                         children: s.content
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/sections/agent-demo.tsx",
-                                        lineNumber: 677,
+                                        lineNumber: 673,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, i, true, {
                                 fileName: "[project]/src/components/sections/agent-demo.tsx",
-                                lineNumber: 669,
+                                lineNumber: 665,
                                 columnNumber: 15
                             }, this))
                     }, void 0, false, {
                         fileName: "[project]/src/components/sections/agent-demo.tsx",
-                        lineNumber: 667,
+                        lineNumber: 663,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/sections/agent-demo.tsx",
-                lineNumber: 662,
+                lineNumber: 658,
                 columnNumber: 9
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/sections/agent-demo.tsx",
-        lineNumber: 588,
+        lineNumber: 584,
         columnNumber: 5
     }, this);
 }
