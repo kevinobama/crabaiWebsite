@@ -133,7 +133,7 @@ const metadata = {
         }
     ],
     icons: {
-        icon: "https://z-cdn.chatglm.cn/z-ai/static/logo.svg"
+        icon: "/crablogo.svg"
     },
     openGraph: {
         title: "crabAI — Custom RAG & SQL Agent Engineering",
