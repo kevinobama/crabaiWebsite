@@ -22,6 +22,7 @@ import {
   CalendarClock,
 } from "lucide-react";
 import { useLang, type Lang } from "@/lib/i18n";
+import { Phone } from "lucide-react";
 
 const T: Record<Lang, {
   badge: string;
@@ -120,9 +121,9 @@ const T: Record<Lang, {
     },
     required: "*",
     placeholders: {
-      name: "陈晓",
-      email: "alex@company.com",
-      company: "Acme 公司（可选）",
+      name: "周文圣",
+      email: "elon@crabai.ai",
+      company: "CrabAI 公司（可选）",
       message:
         "你有什么数据？希望用户能问什么问题？有没有合规、延迟、技术栈方面的约束？",
     },
@@ -133,10 +134,10 @@ const T: Record<Lang, {
       { value: "consult", label: "只要咨询 / 架构评审" },
     ],
     budgetOptions: [
-      { value: "<5k", label: "5 千美元以下" },
-      { value: "5-15k", label: "5 千–1.5 万美元" },
-      { value: "15-50k", label: "1.5 万–5 万美元" },
-      { value: "50k+", label: "5 万美元以上" },
+      { value: "<3w",     label: "3 万元以下" },
+      { value: "3-10w",   label: "3 万–10 万元" },
+      { value: "10-35w",  label: "10 万–35 万元" },
+      { value: "35w+",    label: "35 万元以上" },
     ],
     pickOne: "选一个",
     optional: "可选",
@@ -243,6 +244,11 @@ export function ContactSection() {
                   kevinobamatheus@gmail.com
                 </a>
               </div>
+              <div className="flex items-center gap-2 text-sm">
+                <Phone className="size-4 text-accent" />
+                Phone: +86 131 27584476
+              </div>
+
             </div>
 
             <div className="text-xs text-muted-foreground">{t.privacy}</div>

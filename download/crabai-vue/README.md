@@ -26,7 +26,7 @@ this sandbox — pick whichever frontend you prefer.
           ┌──────────┴──────────┐
           ▼                     ▼
     RAG Agent                SQL Agent
-    InMemoryVectorStore      SQLite
+    FAISS      SQLite
     nomic-embed-text
           │
           ▼

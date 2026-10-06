@@ -24,9 +24,11 @@ from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
 
 from .rag_agent import get_rag_agent
-from .sql_agent import get_sql_agent
+#from .sql_agent import get_sql_agent
 from .supervisor import ask_combined
-
+from .mysql_agent import get_sql_agent
+from dotenv import load_dotenv
+load_dotenv()
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):

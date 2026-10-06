@@ -83,3 +83,11 @@ def get_llmGroq(temperature: float = 0.0) -> BaseChatModel:
         )
     print("[llm] GROQ_API_KEY not set — using FakeLLM fallback")
     return FakeLLM()
+
+def create_llm(temperature: float = 0):
+    return ChatNVIDIA(
+        model="openai/gpt-oss-20b",
+        temperature=1,
+        top_p=1,
+        max_completion_tokens=4096,
+    )

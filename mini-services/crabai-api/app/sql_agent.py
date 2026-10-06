@@ -5,92 +5,89 @@ Flow:
     Question -> LangChain SQL toolkit -> generate SQL -> execute (read-only)
               -> analyze result -> natural-language answer + sql + rows
 
-Uses an in-memory SQLite database preloaded with a small business schema
-(revenue, legal_entities, claims) so the demo works without external DB setup.
+Connects to a MySQL database. Configure via environment variables.
 """
-import sqlite3
+import os
+import re
 from dataclasses import dataclass, field
-from typing import List, Any
+from typing import List, Any, Optional
+from urllib.parse import quote_plus
+
 from sqlalchemy import create_engine, text
+from sqlalchemy.engine import Engine
 from langchain_community.utilities import SQLDatabase
 from langchain_community.agent_toolkits import create_sql_agent
 
 from .llm import get_llm
+from dotenv import load_dotenv
+load_dotenv()
+
+# --------------------------------------------------------------------------
+# MySQL connection
+# --------------------------------------------------------------------------
+def _build_mysql_url(
+        host: str,
+        port: int,
+        user: str,
+        password: str,
+        database: str,
+        driver: str = "pymysql",
+) -> str:
+    """Build a SQLAlchemy MySQL connection URL.
+
+    Requires `pip install pymysql` by default. If you prefer another driver
+    (e.g. `mysqlclient` or `mysql-connector-python`), set MYSQL_DRIVER to
+    "mysqldb" or "mysqlconnector" respectively and install that package.
+    """
+    return (
+        f"mysql+{driver}://{quote_plus(user)}:{quote_plus(password)}"
+        f"@{host}:{port}/{database}?charset=utf8mb4"
+    )
 
 
-def _seed_sqlite(path: str) -> None:
-    """Create and populate a small business database for the demo."""
-    conn = sqlite3.connect(path)
-    cur = conn.cursor()
-    # Drop if exists for clean restart.
-    for t in ["claims", "legal_entities", "revenue", "customers"]:
-        cur.execute(f"DROP TABLE IF EXISTS {t}")
-    # Legal entities (multi-entity insurance company).
-    cur.execute("""
-        CREATE TABLE legal_entities (
-            id INTEGER PRIMARY KEY,
-            name TEXT NOT NULL,
-            country TEXT
-        )
-    """)
-    cur.executemany(
-        "INSERT INTO legal_entities (id, name, country) VALUES (?, ?, ?)",
-        [
-            (1, "crabAI US Inc", "USA"),
-            (2, "crabAI EU GmbH", "Germany"),
-            (3, "crabAI UK Ltd", "UK"),
-        ],
+def _create_mysql_engine() -> Engine:
+    """Create a SQLAlchemy engine for MySQL using env-var configuration.
+
+    Required env vars:
+        MYSQL_HOST, MYSQL_USER, MYSQL_PASSWORD, MYSQL_DATABASE
+    Optional:
+        MYSQL_PORT (default 3306), MYSQL_DRIVER (default pymysql)
+
+    Strongly recommended: point MYSQL_USER to a DB account with SELECT-only
+    privileges so the agent cannot perform writes even if the LLM tries.
+    """
+    host = os.environ["MYSQL_HOST"]
+    port = int(os.environ.get("MYSQL_PORT", "3306"))
+    user = os.environ["MYSQL_USER"]
+    password = os.environ["MYSQL_PASSWORD"]
+    database = os.environ["MYSQL_DATABASE"]
+    driver = os.environ.get("MYSQL_DRIVER", "pymysql")
+
+    url = _build_mysql_url(host, port, user, password, database, driver)
+    engine = create_engine(
+        url,
+        pool_pre_ping=True,   # auto-reconnect on stale/dropped connections
+        pool_recycle=3600,
+        pool_size=5,
+        max_overflow=10,
     )
-    # Revenue table.
-    cur.execute("""
-        CREATE TABLE revenue (
-            id INTEGER PRIMARY KEY,
-            legal_entity_id INTEGER NOT NULL,
-            fiscal_year INTEGER NOT NULL,
-            amount_usd DECIMAL(14, 2) NOT NULL,
-            FOREIGN KEY (legal_entity_id) REFERENCES legal_entities(id)
-        )
-    """)
-    cur.executemany(
-        "INSERT INTO revenue (id, legal_entity_id, fiscal_year, amount_usd) VALUES (?, ?, ?, ?)",
-        [
-            (1, 1, 2024, 4_120_000),
-            (2, 1, 2025, 6_480_000),
-            (3, 2, 2024, 1_950_000),
-            (4, 2, 2025, 2_710_000),
-            (5, 3, 2024, 880_000),
-            (6, 3, 2025, 1_240_000),
-        ],
-    )
-    # Claims table.
-    cur.execute("""
-        CREATE TABLE claims (
-            id INTEGER PRIMARY KEY,
-            legal_entity_id INTEGER NOT NULL,
-            claim_date TEXT NOT NULL,
-            cause TEXT NOT NULL,
-            amount_usd DECIMAL(12, 2) NOT NULL,
-            status TEXT NOT NULL,  -- paid, denied, pending
-            denial_reason TEXT,
-            FOREIGN KEY (legal_entity_id) REFERENCES legal_entities(id)
-        )
-    """)
-    cur.executemany(
-        """INSERT INTO claims
-           (id, legal_entity_id, claim_date, cause, amount_usd, status, denial_reason)
-           VALUES (?, ?, ?, ?, ?, ?, ?)""",
-        [
-            (1, 1, "2025-02-14", "windshield_road_debris", 320.00, "paid", None),
-            (2, 1, "2025-04-03", "windshield_off_road", 410.00, "denied", "off_road_exclusion"),
-            (3, 1, "2025-05-19", "hail_damage", 1850.00, "paid", None),
-            (4, 2, "2025-03-22", "theft", 8200.00, "denied", "police_report_missing"),
-            (5, 2, "2025-06-08", "windshield_intentional", 380.00, "denied", "intentional_act_exclusion"),
-            (6, 3, "2025-01-30", "vandalism", 1240.00, "paid", None),
-            (7, 3, "2025-07-12", "windshield_road_debris", 290.00, "pending", None),
-        ],
-    )
-    conn.commit()
-    conn.close()
+    # Fail fast on bad credentials/network instead of on first user query.
+    with engine.connect() as conn:
+        conn.execute(text("SELECT 1"))
+    return engine
+
+
+# --------------------------------------------------------------------------
+# Read-only enforcement (defense in depth, in addition to DB-level grants)
+# --------------------------------------------------------------------------
+_WRITE_KEYWORDS = re.compile(
+    r"^\s*(INSERT|UPDATE|DELETE|DROP|ALTER|TRUNCATE|CREATE|REPLACE|GRANT|REVOKE)\b",
+    re.IGNORECASE,
+)
+
+
+def _is_write_statement(sql: str) -> bool:
+    return bool(_WRITE_KEYWORDS.match(sql.strip()))
 
 
 @dataclass
@@ -102,47 +99,71 @@ class SqlAnswer:
 
 
 class SqlAgent:
-    """LangChain SQL agent over a seeded SQLite database."""
+    """LangChain SQL agent over a MySQL database."""
 
-    def __init__(self, db_path: str = "data/crabai_demo.db"):
-        import os
-        os.makedirs(os.path.dirname(db_path), exist_ok=True)
-        _seed_sqlite(db_path)
-        # Read-only SQLAlchemy engine — the agent cannot run DDL/DML.
-        self.engine = create_engine(f"sqlite:///{db_path}")
-        self.db = SQLDatabase(self.engine, include_tables=["legal_entities", "revenue", "claims"])
+    def __init__(self):
+        self.engine = _create_mysql_engine()
+        include_tables = self._parse_include_tables()
+        self.db = SQLDatabase(
+            self.engine,
+            include_tables=include_tables,
+            sample_rows_in_table_info=2,
+        )
         self.llm = get_llm(temperature=0.0)
         self.agent = create_sql_agent(
             llm=self.llm,
             db=self.db,
             agent_type="tool-calling",
             verbose=False,
-            max_iterations=6,
+            max_iterations=int(os.environ.get("SQL_AGENT_MAX_ITER", "6")),
             handle_parsing_errors=True,
         )
-        print("[sql] agent ready (SQLite seeded)")
+        print(f"[sql] agent ready (MySQL: {os.environ.get('MYSQL_DATABASE')})")
+
+    @staticmethod
+    def _parse_include_tables() -> Optional[List[str]]:
+        """Optionally restrict the agent's visibility to specific tables.
+
+        Set MYSQL_INCLUDE_TABLES="table1,table2,table3" to scope access.
+        If unset, the agent sees all tables in the configured database.
+        """
+        raw = os.environ.get("MYSQL_INCLUDE_TABLES", "").strip()
+        if not raw:
+            return None
+        return [t.strip() for t in raw.split(",") if t.strip()]
 
     def ask(self, question: str, lang: str = "en") -> SqlAnswer:
         """Run the SQL agent and return structured answer + sql + rows."""
         try:
             result = self.agent.invoke({"input": question})
             output = result.get("output", "")
-            # The intermediate_steps contain the SQL executed.
             sql = ""
             rows: List[List[Any]] = []
             columns: List[str] = []
+
             for step in result.get("intermediate_steps", []):
                 action = step[0]
                 if hasattr(action, "tool") and action.tool == "sql_db_query":
                     try:
-                        sql = action.tool_input if isinstance(action.tool_input, str) else str(action.tool_input)
-                        # Try to run the SQL to get rows for structured output.
+                        candidate_sql = (
+                            action.tool_input
+                            if isinstance(action.tool_input, str)
+                            else str(action.tool_input)
+                        )
+
+                        # Defense in depth: refuse to re-execute write statements
+                        # even if the model attempted one.
+                        if _is_write_statement(candidate_sql):
+                            continue
+
+                        sql = candidate_sql
                         with self.engine.connect() as conn:
                             rs = conn.execute(text(sql))
                             columns = list(rs.keys())
                             rows = [list(r) for r in rs.fetchall()]
                     except Exception:
                         pass
+
             return SqlAnswer(answer=output, sql=sql, rows=rows, columns=columns)
         except Exception as e:
             err = (

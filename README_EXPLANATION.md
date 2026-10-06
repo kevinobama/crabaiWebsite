@@ -16,7 +16,7 @@ my-project/
 │       │   ├── main.py            # FastAPI app + endpoints + SSE
 │       │   ├── embeddings.py      # Nomic API + Hashing fallback
 │       │   ├── llm.py             # Groq + FakeLLM fallback
-│       │   ├── rag_agent.py       # InMemoryVectorStore + preloaded docs
+│       │   ├── rag_agent.py       # FAISS + preloaded docs
 │       │   ├── sql_agent.py       # LangChain SQL toolkit + SQLite
 │       │   └── supervisor.py      # Routes questions to RAG/SQL/both
 │       └── .env.example
@@ -51,7 +51,7 @@ my-project/
           ┌──────────┴──────────┐
           ▼                     ▼
    RAG Agent                SQL Agent
-   InMemoryVectorStore      SQLite (seeded)
+   FAISS      SQLite (seeded)
    nomic-embed-text
                  │
                  ▼
@@ -105,7 +105,7 @@ meaningful).
 
 | Tab | Endpoint | What happens |
 |---|---|---|
-| **RAG Agent** | `POST /api/rag/chat` | Retrieves top-3 chunks from InMemoryVectorStore (7 preloaded policy docs), feeds them to Groq, returns answer with cited sources |
+| **RAG Agent** | `POST /api/rag/chat` | Retrieves top-3 chunks from FAISS (7 preloaded policy docs), feeds them to Groq, returns answer with cited sources |
 | **SQL Agent** | `POST /api/sql/chat` | LangChain SQL toolkit reads the SQLite schema, generates SQL via Groq, executes read-only, returns SQL + rows + summary |
 | **Combined** | `POST /api/combined/chat` | Supervisor routes the question (RAG / SQL / both), calls sub-agents, synthesizes a single answer with both sources and SQL |
 
@@ -123,7 +123,7 @@ meaningful).
 | API | FastAPI | Python owns the LangChain ecosystem |
 | Agent | Python LangChain 1.x | Standard, well-documented |
 | LLM | Groq `openai/gpt-oss-20b` | Fast, free, OpenAI-API-compatible |
-| Vector store | `InMemoryVectorStore` | Zero setup, perfect for demo |
+| Vector store | `FAISS` | Zero setup, perfect for demo |
 | Embeddings | `nomic-embed-text` (Nomic API or hashing fallback) | Matches stack spec |
 | SQL | SQLite + LangChain SQL toolkit | Self-contained, no external DB |
 | Streaming | SSE | Simpler than WebSocket for one-way streaming |

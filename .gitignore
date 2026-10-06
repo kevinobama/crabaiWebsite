@@ -8,7 +8,7 @@ node_modules/
 
 # Vector storage
 faiss_index/
-vectorstore/
+FAISS/
 
 # C extensions
 *.so

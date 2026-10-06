@@ -17,17 +17,17 @@ const T: Record<Lang, {
     badge: "Live, interactive",
     title: "Don't read a slide deck. Try the product.",
     subtitle:
-      "All three tabs are real, end-to-end systems powered by Python LangChain + Groq (gpt-oss-20b) + nomic-embed-text + InMemoryVectorStore. The RAG agent retrieves from 7 preloaded policy docs; the SQL agent writes real SQL against a SQLite database; the Supervisor routes a single question to either or both and synthesizes a combined answer.",
+      "All three tabs are real, end-to-end systems powered by Python LangChain + Groq (gpt-oss-20b) + nomic-embed-text + FAISS. The RAG agent retrieves from 7 preloaded policy docs; the SQL agent writes real SQL against a SQLite database; the Supervisor routes a single question to either or both and synthesizes a combined answer.",
     tabs: { rag: "RAG Agent", sql: "SQL Agent", combined: "Combined" },
-    footer: "Backend: FastAPI · LangChain · Groq · InMemoryVectorStore · SQLite",
+    footer: "Backend: FastAPI · LangChain · Groq · FAISS · SQLite",
   },
   zh: {
     badge: "实时交互",
     title: "别看幻灯片，直接试用产品。",
     subtitle:
-      "三个 Tab 都是真实的、端到端系统，由 Python LangChain + Groq（gpt-oss-20b）+ nomic-embed-text + InMemoryVectorStore 驱动。RAG 智能体从 7 篇预加载的政策文档中检索；SQL 智能体基于 SQLite 数据库生成真实 SQL；Supervisor 会把一个问题路由到一个或两个智能体，并综合出最终答案。",
+      "三个 Tab 都是真实的、端到端系统，由 Python LangChain + Groq（gpt-oss-20b）+ nomic-embed-text + FAISS 驱动。RAG 智能体从 7 篇预加载的政策文档中检索；SQL 智能体基于 SQLite 数据库生成真实 SQL；Supervisor 会把一个问题路由到一个或两个智能体，并综合出最终答案。",
     tabs: { rag: "RAG 智能体", sql: "SQL 智能体", combined: "综合（Supervisor）" },
-    footer: "后端：FastAPI · LangChain · Groq · InMemoryVectorStore · SQLite",
+    footer: "后端：FastAPI · LangChain · Groq · FAISS · SQLite",
   },
 };
 
@@ -56,14 +56,14 @@ export function DemosSection() {
               <FileSearch className="size-4" />
               {t.tabs.rag}
             </TabsTrigger>
-            {/* <TabsTrigger value="sql" className="gap-2">
+            <TabsTrigger value="sql" className="gap-2">
               <Database className="size-4" />
               {t.tabs.sql}
             </TabsTrigger>
-            <TabsTrigger value="combined" className="gap-2">
-              <Workflow className="size-4" />
-              {t.tabs.combined}
-            </TabsTrigger> */}
+            {/*<TabsTrigger value="combined" className="gap-2">*/}
+            {/*  <Workflow className="size-4" />*/}
+            {/*  {t.tabs.combined}*/}
+            {/*</TabsTrigger>*/}
           </TabsList>
           <TabsContent value="rag" className="mt-6">
             <AgentDemo mode="rag" />
