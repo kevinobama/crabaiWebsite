@@ -2,675 +2,211 @@
 - Local:         http://localhost:3000
 - Network:       http://192.168.0.111:3000
 - Environments: .env
-✓ Ready in 552ms
+✓ Ready in 513ms
 ⚠ Warning: Next.js ignored package-lock.json in /home/kevin because it is outside the current Git repository (/home/kevin/kevindata/www/python/crabaiWebsite).
  To use this directory, set `turbopack.root` in your Next.js config.
 
-✓ Running next.config.ts took 85ms
+✓ Running next.config.ts took 33ms
 
-○ Compiling / ...
-⚠ [next]/internal/font/google/geist_a71539c9.module.css
-Warning: Error while requesting resource
-There was an issue establishing a connection while requesting https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap
+[browser] ./src/components/sections/agent-demo.tsx:98:5
+Error: Expected ',', got 'ident'
+   96 |       combined: "e.g. According to our policy, which customers qualify for volume discounts based on their order history?",
+   97 |     }
+>  98 |     helper: "Press Enter to send · Real LLM via Groq · LangChain + FAISS vector store",
+      |     ^^^^^^
+   99 |     emptyTitle: {
+  100 |       rag: "Upload a document to start",
+  101 |       sql: "Ask a question",
 
-Import trace:
-  Server Component:
-    [next]/internal/font/google/geist_a71539c9.module.css
-    [next]/internal/font/google/geist_a71539c9.js
-    ./src/app/layout.tsx
+Parsing ecmascript source code failed
 
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/agent-demo.tsx [Client Component Browser]
+    ./src/components/sections/demos.tsx [Client Component Browser]
+    ./src/components/sections/demos.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
 
-⚠ [next]/internal/font/google/geist_mono_8d43a2aa.module.css
-Warning: Error while requesting resource
-There was an issue establishing a connection while requesting https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&display=swap
+  Client Component SSR:
+    ./src/components/sections/agent-demo.tsx [Client Component SSR]
+    ./src/components/sections/demos.tsx [Client Component SSR]
+    ./src/components/sections/demos.tsx [Server Component]
+    ./src/app/page.tsx [Server Component] 
+[browser] ./src/components/sections/agent-demo.tsx:98:5
+Error: Expected ',', got 'ident'
+   96 |       combined: "e.g. According to our policy, which customers qualify for volume discounts based on their order history?",
+   97 |     }
+>  98 |     helper: "Press Enter to send · Real LLM via Groq · LangChain + FAISS vector store",
+      |     ^^^^^^
+   99 |     emptyTitle: {
+  100 |       rag: "Upload a document to start",
+  101 |       sql: "Ask a question",
 
-Import trace:
-  Server Component:
-    [next]/internal/font/google/geist_mono_8d43a2aa.module.css
-    [next]/internal/font/google/geist_mono_8d43a2aa.js
-    ./src/app/layout.tsx
+Parsing ecmascript source code failed
 
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/agent-demo.tsx [Client Component Browser]
+    ./src/components/sections/demos.tsx [Client Component Browser]
+    ./src/components/sections/demos.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
 
-⚠ [next]/internal/font/google/noto_sans_sc_48f10cb3.module.css
-Warning: Error while requesting resource
-There was an issue establishing a connection while requesting https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&display=swap
+  Client Component SSR:
+    ./src/components/sections/agent-demo.tsx [Client Component SSR]
+    ./src/components/sections/demos.tsx [Client Component SSR]
+    ./src/components/sections/demos.tsx [Server Component]
+    ./src/app/page.tsx [Server Component] 
+[browser] ./src/components/sections/agent-demo.tsx:98:5
+Error: Expected ',', got 'ident'
+   96 |       combined: "e.g. According to our policy, which customers qualify for volume discounts based on their order history?",
+   97 |     }
+>  98 |     helper: "Press Enter to send · Real LLM via Groq · LangChain + FAISS vector store",
+      |     ^^^^^^
+   99 |     emptyTitle: {
+  100 |       rag: "Upload a document to start",
+  101 |       sql: "Ask a question",
 
-Import trace:
-  Server Component:
-    [next]/internal/font/google/noto_sans_sc_48f10cb3.module.css
-    [next]/internal/font/google/noto_sans_sc_48f10cb3.js
-    ./src/app/layout.tsx
+Parsing ecmascript source code failed
 
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/agent-demo.tsx [Client Component Browser]
+    ./src/components/sections/demos.tsx [Client Component Browser]
+    ./src/components/sections/demos.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
 
-⚠ [next]/internal/font/google/geist_a71539c9.module.css
-Warning: next/font: warning:
-Failed to download Geist from Google Fonts. Using a fallback font instead.
-If you are offline or behind a proxy, self-host the font with next/font/local, or set HTTP_PROXY/HTTPS_PROXY so Next.js can reach fonts.googleapis.com.
+  Client Component SSR:
+    ./src/components/sections/agent-demo.tsx [Client Component SSR]
+    ./src/components/sections/demos.tsx [Client Component SSR]
+    ./src/components/sections/demos.tsx [Server Component]
+    ./src/app/page.tsx [Server Component] 
+[browser] ./src/components/sections/agent-demo.tsx:98:5
+Error: Expected ',', got 'ident'
+   96 |       combined: "e.g. According to our policy, which customers qualify for volume discounts based on their order history?",
+   97 |     }
+>  98 |     helper: "Press Enter to send · Real LLM via Groq · LangChain + FAISS vector store",
+      |     ^^^^^^
+   99 |     emptyTitle: {
+  100 |       rag: "Upload a document to start",
+  101 |       sql: "Ask a question",
 
-Import trace:
-  Server Component:
-    [next]/internal/font/google/geist_a71539c9.module.css
-    [next]/internal/font/google/geist_a71539c9.js
-    ./src/app/layout.tsx
+Parsing ecmascript source code failed
 
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/agent-demo.tsx [Client Component Browser]
+    ./src/components/sections/demos.tsx [Client Component Browser]
+    ./src/components/sections/demos.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
 
-⚠ [next]/internal/font/google/geist_mono_8d43a2aa.module.css
-Warning: next/font: warning:
-Failed to download Geist Mono from Google Fonts. Using a fallback font instead.
-If you are offline or behind a proxy, self-host the font with next/font/local, or set HTTP_PROXY/HTTPS_PROXY so Next.js can reach fonts.googleapis.com.
+  Client Component SSR:
+    ./src/components/sections/agent-demo.tsx [Client Component SSR]
+    ./src/components/sections/demos.tsx [Client Component SSR]
+    ./src/components/sections/demos.tsx [Server Component]
+    ./src/app/page.tsx [Server Component] 
+[browser] ./src/components/sections/agent-demo.tsx:98:5
+Error: Expected ',', got 'ident'
+   96 |       combined: "e.g. According to our policy, which customers qualify for volume discounts based on their order history?",
+   97 |     }
+>  98 |     helper: "Press Enter to send · Real LLM via Groq · LangChain + FAISS vector store",
+      |     ^^^^^^
+   99 |     emptyTitle: {
+  100 |       rag: "Upload a document to start",
+  101 |       sql: "Ask a question",
 
-Import trace:
-  Server Component:
-    [next]/internal/font/google/geist_mono_8d43a2aa.module.css
-    [next]/internal/font/google/geist_mono_8d43a2aa.js
-    ./src/app/layout.tsx
+Parsing ecmascript source code failed
 
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/agent-demo.tsx [Client Component Browser]
+    ./src/components/sections/demos.tsx [Client Component Browser]
+    ./src/components/sections/demos.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
 
-⚠ [next]/internal/font/google/noto_sans_sc_48f10cb3.module.css
-Warning: next/font: warning:
-Failed to download Noto Sans SC from Google Fonts. Using a fallback font instead.
-If you are offline or behind a proxy, self-host the font with next/font/local, or set HTTP_PROXY/HTTPS_PROXY so Next.js can reach fonts.googleapis.com.
+  Client Component SSR:
+    ./src/components/sections/agent-demo.tsx [Client Component SSR]
+    ./src/components/sections/demos.tsx [Client Component SSR]
+    ./src/components/sections/demos.tsx [Server Component]
+    ./src/app/page.tsx [Server Component] 
+[browser] ./src/components/sections/agent-demo.tsx:98:5
+Error: Expected ',', got 'ident'
+   96 |       combined: "e.g. According to our policy, which customers qualify for volume discounts based on their order history?",
+   97 |     }
+>  98 |     helper: "Press Enter to send · Real LLM via Groq · LangChain + FAISS vector store",
+      |     ^^^^^^
+   99 |     emptyTitle: {
+  100 |       rag: "Upload a document to start",
+  101 |       sql: "Ask a question",
 
-Import trace:
-  Server Component:
-    [next]/internal/font/google/noto_sans_sc_48f10cb3.module.css
-    [next]/internal/font/google/noto_sans_sc_48f10cb3.js
-    ./src/app/layout.tsx
+Parsing ecmascript source code failed
 
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/agent-demo.tsx [Client Component Browser]
+    ./src/components/sections/demos.tsx [Client Component Browser]
+    ./src/components/sections/demos.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
 
- GET / 200 in 4.5s (next.js: 4.1s, application-code: 364ms)
-⚠ [next]/internal/font/google/geist_a71539c9.module.css
-Warning: Error while requesting resource
-There was an issue establishing a connection while requesting https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap
+  Client Component SSR:
+    ./src/components/sections/agent-demo.tsx [Client Component SSR]
+    ./src/components/sections/demos.tsx [Client Component SSR]
+    ./src/components/sections/demos.tsx [Server Component]
+    ./src/app/page.tsx [Server Component] 
+[browser] ./src/components/sections/agent-demo.tsx:98:5
+Error: Expected ',', got 'ident'
+   96 |       combined: "e.g. According to our policy, which customers qualify for volume discounts based on their order history?",
+   97 |     }
+>  98 |     helper: "Press Enter to send · Real LLM via Groq · LangChain + FAISS vector store",
+      |     ^^^^^^
+   99 |     emptyTitle: {
+  100 |       rag: "Upload a document to start",
+  101 |       sql: "Ask a question",
 
-Import trace:
-  Server Component:
-    [next]/internal/font/google/geist_a71539c9.module.css
-    [next]/internal/font/google/geist_a71539c9.js
-    ./src/app/layout.tsx
+Parsing ecmascript source code failed
 
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/agent-demo.tsx [Client Component Browser]
+    ./src/components/sections/demos.tsx [Client Component Browser]
+    ./src/components/sections/demos.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
 
-⚠ [next]/internal/font/google/geist_mono_8d43a2aa.module.css
-Warning: Error while requesting resource
-There was an issue establishing a connection while requesting https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&display=swap
-
-Import trace:
-  Server Component:
-    [next]/internal/font/google/geist_mono_8d43a2aa.module.css
-    [next]/internal/font/google/geist_mono_8d43a2aa.js
-    ./src/app/layout.tsx
-
-
-⚠ [next]/internal/font/google/noto_sans_sc_48f10cb3.module.css
-Warning: Error while requesting resource
-There was an issue establishing a connection while requesting https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&display=swap
-
-Import trace:
-  Server Component:
-    [next]/internal/font/google/noto_sans_sc_48f10cb3.module.css
-    [next]/internal/font/google/noto_sans_sc_48f10cb3.js
-    ./src/app/layout.tsx
-
-
-⚠ [next]/internal/font/google/geist_a71539c9.module.css
-Warning: next/font: warning:
-Failed to download Geist from Google Fonts. Using a fallback font instead.
-If you are offline or behind a proxy, self-host the font with next/font/local, or set HTTP_PROXY/HTTPS_PROXY so Next.js can reach fonts.googleapis.com.
-
-Import trace:
-  Server Component:
-    [next]/internal/font/google/geist_a71539c9.module.css
-    [next]/internal/font/google/geist_a71539c9.js
-    ./src/app/layout.tsx
-
-
-⚠ [next]/internal/font/google/geist_mono_8d43a2aa.module.css
-Warning: next/font: warning:
-Failed to download Geist Mono from Google Fonts. Using a fallback font instead.
-If you are offline or behind a proxy, self-host the font with next/font/local, or set HTTP_PROXY/HTTPS_PROXY so Next.js can reach fonts.googleapis.com.
-
-Import trace:
-  Server Component:
-    [next]/internal/font/google/geist_mono_8d43a2aa.module.css
-    [next]/internal/font/google/geist_mono_8d43a2aa.js
-    ./src/app/layout.tsx
-
-
-⚠ [next]/internal/font/google/noto_sans_sc_48f10cb3.module.css
-Warning: next/font: warning:
-Failed to download Noto Sans SC from Google Fonts. Using a fallback font instead.
-If you are offline or behind a proxy, self-host the font with next/font/local, or set HTTP_PROXY/HTTPS_PROXY so Next.js can reach fonts.googleapis.com.
-
-Import trace:
-  Server Component:
-    [next]/internal/font/google/noto_sans_sc_48f10cb3.module.css
-    [next]/internal/font/google/noto_sans_sc_48f10cb3.js
-    ./src/app/layout.tsx
-
-
-  Reload env: .env
-  Reload env: .env
-Failed to proxy http://localhost:8000/api/sql/chat Error: socket hang up
-    at ignore-listed frames {
-  code: 'ECONNRESET'
+  Client Component SSR:
+    ./src/components/sections/agent-demo.tsx [Client Component SSR]
+    ./src/components/sections/demos.tsx [Client Component SSR]
+    ./src/components/sections/demos.tsx [Server Component]
+    ./src/app/page.tsx [Server Component] 
+ GET / 200 in 1411ms (next.js: 1046ms, application-code: 365ms)
+Failed to proxy http://localhost:8000/api/documents Error: connect ECONNREFUSED 127.0.0.1:8000
+    at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8000) {
+  errno: -111,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '127.0.0.1',
+  port: 8000
 }
-Error: socket hang up
-    at ignore-listed frames {
-  code: 'ECONNRESET'
+Error: connect ECONNREFUSED 127.0.0.1:8000
+    at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8000) {
+  errno: -111,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '127.0.0.1',
+  port: 8000
 }
-⚠ [next]/internal/font/google/geist_a71539c9.module.css
-Warning: Error while requesting resource
-There was an issue establishing a connection while requesting https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap
-
-Import trace:
-  Server Component:
-    [next]/internal/font/google/geist_a71539c9.module.css
-    [next]/internal/font/google/geist_a71539c9.js
-    ./src/app/layout.tsx
-
-
-⚠ [next]/internal/font/google/geist_mono_8d43a2aa.module.css
-Warning: Error while requesting resource
-There was an issue establishing a connection while requesting https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&display=swap
-
-Import trace:
-  Server Component:
-    [next]/internal/font/google/geist_mono_8d43a2aa.module.css
-    [next]/internal/font/google/geist_mono_8d43a2aa.js
-    ./src/app/layout.tsx
-
-
-⚠ [next]/internal/font/google/noto_sans_sc_48f10cb3.module.css
-Warning: Error while requesting resource
-There was an issue establishing a connection while requesting https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&display=swap
-
-Import trace:
-  Server Component:
-    [next]/internal/font/google/noto_sans_sc_48f10cb3.module.css
-    [next]/internal/font/google/noto_sans_sc_48f10cb3.js
-    ./src/app/layout.tsx
-
-
-⚠ [next]/internal/font/google/geist_a71539c9.module.css
-Warning: next/font: warning:
-Failed to download Geist from Google Fonts. Using a fallback font instead.
-If you are offline or behind a proxy, self-host the font with next/font/local, or set HTTP_PROXY/HTTPS_PROXY so Next.js can reach fonts.googleapis.com.
-
-Import trace:
-  Server Component:
-    [next]/internal/font/google/geist_a71539c9.module.css
-    [next]/internal/font/google/geist_a71539c9.js
-    ./src/app/layout.tsx
-
-
-⚠ [next]/internal/font/google/geist_mono_8d43a2aa.module.css
-Warning: next/font: warning:
-Failed to download Geist Mono from Google Fonts. Using a fallback font instead.
-If you are offline or behind a proxy, self-host the font with next/font/local, or set HTTP_PROXY/HTTPS_PROXY so Next.js can reach fonts.googleapis.com.
-
-Import trace:
-  Server Component:
-    [next]/internal/font/google/geist_mono_8d43a2aa.module.css
-    [next]/internal/font/google/geist_mono_8d43a2aa.js
-    ./src/app/layout.tsx
-
-
-⚠ [next]/internal/font/google/noto_sans_sc_48f10cb3.module.css
-Warning: next/font: warning:
-Failed to download Noto Sans SC from Google Fonts. Using a fallback font instead.
-If you are offline or behind a proxy, self-host the font with next/font/local, or set HTTP_PROXY/HTTPS_PROXY so Next.js can reach fonts.googleapis.com.
-
-Import trace:
-  Server Component:
-    [next]/internal/font/google/noto_sans_sc_48f10cb3.module.css
-    [next]/internal/font/google/noto_sans_sc_48f10cb3.js
-    ./src/app/layout.tsx
-
-
-⚠ [next]/internal/font/google/geist_a71539c9.module.css
-Warning: Error while requesting resource
-There was an issue establishing a connection while requesting https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap
-
-Import trace:
-  Server Component:
-    [next]/internal/font/google/geist_a71539c9.module.css
-    [next]/internal/font/google/geist_a71539c9.js
-    ./src/app/layout.tsx
-
-
-⚠ [next]/internal/font/google/geist_mono_8d43a2aa.module.css
-Warning: Error while requesting resource
-There was an issue establishing a connection while requesting https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&display=swap
-
-Import trace:
-  Server Component:
-    [next]/internal/font/google/geist_mono_8d43a2aa.module.css
-    [next]/internal/font/google/geist_mono_8d43a2aa.js
-    ./src/app/layout.tsx
-
-
-⚠ [next]/internal/font/google/noto_sans_sc_48f10cb3.module.css
-Warning: Error while requesting resource
-There was an issue establishing a connection while requesting https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&display=swap
-
-Import trace:
-  Server Component:
-    [next]/internal/font/google/noto_sans_sc_48f10cb3.module.css
-    [next]/internal/font/google/noto_sans_sc_48f10cb3.js
-    ./src/app/layout.tsx
-
-
-⚠ [next]/internal/font/google/geist_a71539c9.module.css
-Warning: next/font: warning:
-Failed to download Geist from Google Fonts. Using a fallback font instead.
-If you are offline or behind a proxy, self-host the font with next/font/local, or set HTTP_PROXY/HTTPS_PROXY so Next.js can reach fonts.googleapis.com.
-
-Import trace:
-  Server Component:
-    [next]/internal/font/google/geist_a71539c9.module.css
-    [next]/internal/font/google/geist_a71539c9.js
-    ./src/app/layout.tsx
-
-
-⚠ [next]/internal/font/google/geist_mono_8d43a2aa.module.css
-Warning: next/font: warning:
-Failed to download Geist Mono from Google Fonts. Using a fallback font instead.
-If you are offline or behind a proxy, self-host the font with next/font/local, or set HTTP_PROXY/HTTPS_PROXY so Next.js can reach fonts.googleapis.com.
-
-Import trace:
-  Server Component:
-    [next]/internal/font/google/geist_mono_8d43a2aa.module.css
-    [next]/internal/font/google/geist_mono_8d43a2aa.js
-    ./src/app/layout.tsx
-
-
-⚠ [next]/internal/font/google/noto_sans_sc_48f10cb3.module.css
-Warning: next/font: warning:
-Failed to download Noto Sans SC from Google Fonts. Using a fallback font instead.
-If you are offline or behind a proxy, self-host the font with next/font/local, or set HTTP_PROXY/HTTPS_PROXY so Next.js can reach fonts.googleapis.com.
-
-Import trace:
-  Server Component:
-    [next]/internal/font/google/noto_sans_sc_48f10cb3.module.css
-    [next]/internal/font/google/noto_sans_sc_48f10cb3.js
-    ./src/app/layout.tsx
-
-
- GET / 200 in 298ms (next.js: 84ms, application-code: 214ms)
-⚠ [next]/internal/font/google/geist_a71539c9.module.css
-Warning: Error while requesting resource
-There was an issue establishing a connection while requesting https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap
-
-Import trace:
-  Server Component:
-    [next]/internal/font/google/geist_a71539c9.module.css
-    [next]/internal/font/google/geist_a71539c9.js
-    ./src/app/layout.tsx
-
-
-⚠ [next]/internal/font/google/geist_mono_8d43a2aa.module.css
-Warning: Error while requesting resource
-There was an issue establishing a connection while requesting https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&display=swap
-
-Import trace:
-  Server Component:
-    [next]/internal/font/google/geist_mono_8d43a2aa.module.css
-    [next]/internal/font/google/geist_mono_8d43a2aa.js
-    ./src/app/layout.tsx
-
-
-⚠ [next]/internal/font/google/noto_sans_sc_48f10cb3.module.css
-Warning: Error while requesting resource
-There was an issue establishing a connection while requesting https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&display=swap
-
-Import trace:
-  Server Component:
-    [next]/internal/font/google/noto_sans_sc_48f10cb3.module.css
-    [next]/internal/font/google/noto_sans_sc_48f10cb3.js
-    ./src/app/layout.tsx
-
-
-⚠ [next]/internal/font/google/geist_a71539c9.module.css
-Warning: next/font: warning:
-Failed to download Geist from Google Fonts. Using a fallback font instead.
-If you are offline or behind a proxy, self-host the font with next/font/local, or set HTTP_PROXY/HTTPS_PROXY so Next.js can reach fonts.googleapis.com.
-
-Import trace:
-  Server Component:
-    [next]/internal/font/google/geist_a71539c9.module.css
-    [next]/internal/font/google/geist_a71539c9.js
-    ./src/app/layout.tsx
-
-
-⚠ [next]/internal/font/google/geist_mono_8d43a2aa.module.css
-Warning: next/font: warning:
-Failed to download Geist Mono from Google Fonts. Using a fallback font instead.
-If you are offline or behind a proxy, self-host the font with next/font/local, or set HTTP_PROXY/HTTPS_PROXY so Next.js can reach fonts.googleapis.com.
-
-Import trace:
-  Server Component:
-    [next]/internal/font/google/geist_mono_8d43a2aa.module.css
-    [next]/internal/font/google/geist_mono_8d43a2aa.js
-    ./src/app/layout.tsx
-
-
-⚠ [next]/internal/font/google/noto_sans_sc_48f10cb3.module.css
-Warning: next/font: warning:
-Failed to download Noto Sans SC from Google Fonts. Using a fallback font instead.
-If you are offline or behind a proxy, self-host the font with next/font/local, or set HTTP_PROXY/HTTPS_PROXY so Next.js can reach fonts.googleapis.com.
-
-Import trace:
-  Server Component:
-    [next]/internal/font/google/noto_sans_sc_48f10cb3.module.css
-    [next]/internal/font/google/noto_sans_sc_48f10cb3.js
-    ./src/app/layout.tsx
-
-
-Failed to proxy http://localhost:8000/api/sql/chat Error: socket hang up
-    at ignore-listed frames {
-  code: 'ECONNRESET'
+ GET / 200 in 181ms (next.js: 21ms, application-code: 160ms)
+Failed to proxy http://localhost:8000/api/documents Error: connect ECONNREFUSED 127.0.0.1:8000
+    at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8000) {
+  errno: -111,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '127.0.0.1',
+  port: 8000
 }
-Error: socket hang up
-    at ignore-listed frames {
-  code: 'ECONNRESET'
+Error: connect ECONNREFUSED 127.0.0.1:8000
+    at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8000) {
+  errno: -111,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '127.0.0.1',
+  port: 8000
 }
-⚠ [next]/internal/font/google/geist_a71539c9.module.css
-Warning: Error while requesting resource
-There was an issue establishing a connection while requesting https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap
-
-Import trace:
-  Server Component:
-    [next]/internal/font/google/geist_a71539c9.module.css
-    [next]/internal/font/google/geist_a71539c9.js
-    ./src/app/layout.tsx
-
-
-⚠ [next]/internal/font/google/geist_mono_8d43a2aa.module.css
-Warning: Error while requesting resource
-There was an issue establishing a connection while requesting https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&display=swap
-
-Import trace:
-  Server Component:
-    [next]/internal/font/google/geist_mono_8d43a2aa.module.css
-    [next]/internal/font/google/geist_mono_8d43a2aa.js
-    ./src/app/layout.tsx
-
-
-⚠ [next]/internal/font/google/noto_sans_sc_48f10cb3.module.css
-Warning: Error while requesting resource
-There was an issue establishing a connection while requesting https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&display=swap
-
-Import trace:
-  Server Component:
-    [next]/internal/font/google/noto_sans_sc_48f10cb3.module.css
-    [next]/internal/font/google/noto_sans_sc_48f10cb3.js
-    ./src/app/layout.tsx
-
-
-⚠ [next]/internal/font/google/geist_a71539c9.module.css
-Warning: next/font: warning:
-Failed to download Geist from Google Fonts. Using a fallback font instead.
-If you are offline or behind a proxy, self-host the font with next/font/local, or set HTTP_PROXY/HTTPS_PROXY so Next.js can reach fonts.googleapis.com.
-
-Import trace:
-  Server Component:
-    [next]/internal/font/google/geist_a71539c9.module.css
-    [next]/internal/font/google/geist_a71539c9.js
-    ./src/app/layout.tsx
-
-
-⚠ [next]/internal/font/google/geist_mono_8d43a2aa.module.css
-Warning: next/font: warning:
-Failed to download Geist Mono from Google Fonts. Using a fallback font instead.
-If you are offline or behind a proxy, self-host the font with next/font/local, or set HTTP_PROXY/HTTPS_PROXY so Next.js can reach fonts.googleapis.com.
-
-Import trace:
-  Server Component:
-    [next]/internal/font/google/geist_mono_8d43a2aa.module.css
-    [next]/internal/font/google/geist_mono_8d43a2aa.js
-    ./src/app/layout.tsx
-
-
-⚠ [next]/internal/font/google/noto_sans_sc_48f10cb3.module.css
-Warning: next/font: warning:
-Failed to download Noto Sans SC from Google Fonts. Using a fallback font instead.
-If you are offline or behind a proxy, self-host the font with next/font/local, or set HTTP_PROXY/HTTPS_PROXY so Next.js can reach fonts.googleapis.com.
-
-Import trace:
-  Server Component:
-    [next]/internal/font/google/noto_sans_sc_48f10cb3.module.css
-    [next]/internal/font/google/noto_sans_sc_48f10cb3.js
-    ./src/app/layout.tsx
-
-
-Failed to proxy http://localhost:8000/api/sql/chat Error: socket hang up
-    at ignore-listed frames {
-  code: 'ECONNRESET'
-}
-Error: socket hang up
-    at ignore-listed frames {
-  code: 'ECONNRESET'
-}
-⚠ [next]/internal/font/google/geist_a71539c9.module.css
-Warning: Error while requesting resource
-There was an issue establishing a connection while requesting https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap
-
-Import trace:
-  Server Component:
-    [next]/internal/font/google/geist_a71539c9.module.css
-    [next]/internal/font/google/geist_a71539c9.js
-    ./src/app/layout.tsx
-
-
-⚠ [next]/internal/font/google/geist_mono_8d43a2aa.module.css
-Warning: Error while requesting resource
-There was an issue establishing a connection while requesting https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&display=swap
-
-Import trace:
-  Server Component:
-    [next]/internal/font/google/geist_mono_8d43a2aa.module.css
-    [next]/internal/font/google/geist_mono_8d43a2aa.js
-    ./src/app/layout.tsx
-
-
-⚠ [next]/internal/font/google/noto_sans_sc_48f10cb3.module.css
-Warning: Error while requesting resource
-There was an issue establishing a connection while requesting https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&display=swap
-
-Import trace:
-  Server Component:
-    [next]/internal/font/google/noto_sans_sc_48f10cb3.module.css
-    [next]/internal/font/google/noto_sans_sc_48f10cb3.js
-    ./src/app/layout.tsx
-
-
-⚠ [next]/internal/font/google/geist_a71539c9.module.css
-Warning: next/font: warning:
-Failed to download Geist from Google Fonts. Using a fallback font instead.
-If you are offline or behind a proxy, self-host the font with next/font/local, or set HTTP_PROXY/HTTPS_PROXY so Next.js can reach fonts.googleapis.com.
-
-Import trace:
-  Server Component:
-    [next]/internal/font/google/geist_a71539c9.module.css
-    [next]/internal/font/google/geist_a71539c9.js
-    ./src/app/layout.tsx
-
-
-⚠ [next]/internal/font/google/geist_mono_8d43a2aa.module.css
-Warning: next/font: warning:
-Failed to download Geist Mono from Google Fonts. Using a fallback font instead.
-If you are offline or behind a proxy, self-host the font with next/font/local, or set HTTP_PROXY/HTTPS_PROXY so Next.js can reach fonts.googleapis.com.
-
-Import trace:
-  Server Component:
-    [next]/internal/font/google/geist_mono_8d43a2aa.module.css
-    [next]/internal/font/google/geist_mono_8d43a2aa.js
-    ./src/app/layout.tsx
-
-
-⚠ [next]/internal/font/google/noto_sans_sc_48f10cb3.module.css
-Warning: next/font: warning:
-Failed to download Noto Sans SC from Google Fonts. Using a fallback font instead.
-If you are offline or behind a proxy, self-host the font with next/font/local, or set HTTP_PROXY/HTTPS_PROXY so Next.js can reach fonts.googleapis.com.
-
-Import trace:
-  Server Component:
-    [next]/internal/font/google/noto_sans_sc_48f10cb3.module.css
-    [next]/internal/font/google/noto_sans_sc_48f10cb3.js
-    ./src/app/layout.tsx
-
-
-Failed to proxy http://localhost:8000/api/sql/chat Error: socket hang up
-    at ignore-listed frames {
-  code: 'ECONNRESET'
-}
-Error: socket hang up
-    at ignore-listed frames {
-  code: 'ECONNRESET'
-}
-⚠ [next]/internal/font/google/geist_a71539c9.module.css
-Warning: Error while requesting resource
-There was an issue establishing a connection while requesting https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap
-
-Import trace:
-  Server Component:
-    [next]/internal/font/google/geist_a71539c9.module.css
-    [next]/internal/font/google/geist_a71539c9.js
-    ./src/app/layout.tsx
-
-
-⚠ [next]/internal/font/google/geist_mono_8d43a2aa.module.css
-Warning: Error while requesting resource
-There was an issue establishing a connection while requesting https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&display=swap
-
-Import trace:
-  Server Component:
-    [next]/internal/font/google/geist_mono_8d43a2aa.module.css
-    [next]/internal/font/google/geist_mono_8d43a2aa.js
-    ./src/app/layout.tsx
-
-
-⚠ [next]/internal/font/google/noto_sans_sc_48f10cb3.module.css
-Warning: Error while requesting resource
-There was an issue establishing a connection while requesting https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&display=swap
-
-Import trace:
-  Server Component:
-    [next]/internal/font/google/noto_sans_sc_48f10cb3.module.css
-    [next]/internal/font/google/noto_sans_sc_48f10cb3.js
-    ./src/app/layout.tsx
-
-
-⚠ [next]/internal/font/google/geist_a71539c9.module.css
-Warning: next/font: warning:
-Failed to download Geist from Google Fonts. Using a fallback font instead.
-If you are offline or behind a proxy, self-host the font with next/font/local, or set HTTP_PROXY/HTTPS_PROXY so Next.js can reach fonts.googleapis.com.
-
-Import trace:
-  Server Component:
-    [next]/internal/font/google/geist_a71539c9.module.css
-    [next]/internal/font/google/geist_a71539c9.js
-    ./src/app/layout.tsx
-
-
-⚠ [next]/internal/font/google/geist_mono_8d43a2aa.module.css
-Warning: next/font: warning:
-Failed to download Geist Mono from Google Fonts. Using a fallback font instead.
-If you are offline or behind a proxy, self-host the font with next/font/local, or set HTTP_PROXY/HTTPS_PROXY so Next.js can reach fonts.googleapis.com.
-
-Import trace:
-  Server Component:
-    [next]/internal/font/google/geist_mono_8d43a2aa.module.css
-    [next]/internal/font/google/geist_mono_8d43a2aa.js
-    ./src/app/layout.tsx
-
-
-⚠ [next]/internal/font/google/noto_sans_sc_48f10cb3.module.css
-Warning: next/font: warning:
-Failed to download Noto Sans SC from Google Fonts. Using a fallback font instead.
-If you are offline or behind a proxy, self-host the font with next/font/local, or set HTTP_PROXY/HTTPS_PROXY so Next.js can reach fonts.googleapis.com.
-
-Import trace:
-  Server Component:
-    [next]/internal/font/google/noto_sans_sc_48f10cb3.module.css
-    [next]/internal/font/google/noto_sans_sc_48f10cb3.js
-    ./src/app/layout.tsx
-
-
-Failed to proxy http://localhost:8000/api/sql/chat Error: socket hang up
-    at ignore-listed frames {
-  code: 'ECONNRESET'
-}
-Error: socket hang up
-    at ignore-listed frames {
-  code: 'ECONNRESET'
-}
-⚠ [next]/internal/font/google/geist_a71539c9.module.css
-Warning: Error while requesting resource
-There was an issue establishing a connection while requesting https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap
-
-Import trace:
-  Server Component:
-    [next]/internal/font/google/geist_a71539c9.module.css
-    [next]/internal/font/google/geist_a71539c9.js
-    ./src/app/layout.tsx
-
-
-⚠ [next]/internal/font/google/geist_mono_8d43a2aa.module.css
-Warning: Error while requesting resource
-There was an issue establishing a connection while requesting https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&display=swap
-
-Import trace:
-  Server Component:
-    [next]/internal/font/google/geist_mono_8d43a2aa.module.css
-    [next]/internal/font/google/geist_mono_8d43a2aa.js
-    ./src/app/layout.tsx
-
-
-⚠ [next]/internal/font/google/noto_sans_sc_48f10cb3.module.css
-Warning: Error while requesting resource
-There was an issue establishing a connection while requesting https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&display=swap
-
-Import trace:
-  Server Component:
-    [next]/internal/font/google/noto_sans_sc_48f10cb3.module.css
-    [next]/internal/font/google/noto_sans_sc_48f10cb3.js
-    ./src/app/layout.tsx
-
-
-⚠ [next]/internal/font/google/geist_a71539c9.module.css
-Warning: next/font: warning:
-Failed to download Geist from Google Fonts. Using a fallback font instead.
-If you are offline or behind a proxy, self-host the font with next/font/local, or set HTTP_PROXY/HTTPS_PROXY so Next.js can reach fonts.googleapis.com.
-
-Import trace:
-  Server Component:
-    [next]/internal/font/google/geist_a71539c9.module.css
-    [next]/internal/font/google/geist_a71539c9.js
-    ./src/app/layout.tsx
-
-
-⚠ [next]/internal/font/google/geist_mono_8d43a2aa.module.css
-Warning: next/font: warning:
-Failed to download Geist Mono from Google Fonts. Using a fallback font instead.
-If you are offline or behind a proxy, self-host the font with next/font/local, or set HTTP_PROXY/HTTPS_PROXY so Next.js can reach fonts.googleapis.com.
-
-Import trace:
-  Server Component:
-    [next]/internal/font/google/geist_mono_8d43a2aa.module.css
-    [next]/internal/font/google/geist_mono_8d43a2aa.js
-    ./src/app/layout.tsx
-
-
-⚠ [next]/internal/font/google/noto_sans_sc_48f10cb3.module.css
-Warning: next/font: warning:
-Failed to download Noto Sans SC from Google Fonts. Using a fallback font instead.
-If you are offline or behind a proxy, self-host the font with next/font/local, or set HTTP_PROXY/HTTPS_PROXY so Next.js can reach fonts.googleapis.com.
-
-Import trace:
-  Server Component:
-    [next]/internal/font/google/noto_sans_sc_48f10cb3.module.css
-    [next]/internal/font/google/noto_sans_sc_48f10cb3.js
-    ./src/app/layout.tsx
-
-

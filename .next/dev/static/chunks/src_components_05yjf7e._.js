@@ -53,11 +53,11 @@ const T = {
             combined: "Ask a question that needs both documents and data"
         },
         indexed: (n)=>`${n} doc${n === 1 ? "" : "s"} indexed`,
-        schema: "SQLite · 4 tables",
+        schema: "Mysql · 8 tables",
         placeholder: {
             rag: "Upload a document above, then ask anything about it…",
-            sql: "e.g. What was total revenue in 2025?",
-            combined: "e.g. Based on our policy, how many claims were denied for excluded windshield damage?"
+            sql: "e.g. Show total sales by product line for 2026",
+            combined: "e.g. According to our policy, which customers qualify for volume discounts based on their order history?"
         },
         helper: "Press Enter to send · Real LLM via Groq · LangChain + FAISS vector store",
         emptyTitle: {
@@ -88,9 +88,9 @@ const T = {
                 "How does the document upload pipeline work?"
             ],
             sql: [
-                "What was total revenue in 2025?",
-                "Show revenue by legal entity for 2025",
-                "How many claims were denied in 2025?",
+                "What was total revenue in 2026?",
+                "Show revenue by legal entity for 2026",
+                "How many claims were denied in 2026?",
                 "List pending claims with their amounts"
             ],
             combined: [
@@ -126,10 +126,10 @@ const T = {
             combined: "提一个需要同时用到文档和数据的问题"
         },
         indexed: (n)=>`已索引 ${n} 篇文档`,
-        schema: "SQLite · 4 张表",
+        schema: "Mysql · 4 张表",
         placeholder: {
             rag: "在上方上传文档，然后就可以就文档提问…",
-            sql: "例如：2025 年总营收是多少？",
+            sql: "例如：2026 年总营收是多少？",
             combined: "例如：根据保单，有多少理赔因挡风玻璃除外条款被拒？"
         },
         helper: "按 Enter 发送 · 由 Groq 真实大模型驱动 · LangChain + FAISS 向量库",
@@ -161,9 +161,9 @@ const T = {
                 "文档上传流水线是怎么工作的？"
             ],
             sql: [
-                "2025 年总营收是多少？",
-                "按法人实体展示 2025 年的营收",
-                "2025 年有多少理赔被拒？",
+                "2026 年总营收是多少？",
+                "按法人实体展示 2026 年的营收",
+                "2026 年有多少理赔被拒？",
                 "列出待处理理赔及金额"
             ],
             combined: [
@@ -2070,24 +2070,24 @@ const T = {
     en: {
         badge: "Live, interactive",
         title: "Don't read a slide deck. Try the product.",
-        subtitle: "All three tabs are real, end-to-end systems powered by Python LangChain + Groq (gpt-oss-20b) + nomic-embed-text + FAISS. The RAG agent retrieves from 7 preloaded policy docs; the SQL agent writes real SQL against a SQLite database; the Supervisor routes a single question to either or both and synthesizes a combined answer.",
+        subtitle: "All three tabs are real, end-to-end systems powered by Python LangChain + Groq (gpt-oss-20b) + nomic-embed-text + FAISS. The RAG agent retrieves from 7 preloaded policy docs; the SQL agent writes real SQL against a Mysql database; the Supervisor routes a single question to either or both and synthesizes a combined answer.",
         tabs: {
             rag: "RAG Agent",
             sql: "SQL Agent",
             combined: "Combined"
         },
-        footer: "Backend: FastAPI · LangChain · Groq · FAISS · SQLite"
+        footer: "Backend: FastAPI · LangChain · Groq · FAISS · Mysql"
     },
     zh: {
         badge: "实时交互",
         title: "别看幻灯片，直接试用产品。",
-        subtitle: "三个 Tab 都是真实的、端到端系统，由 Python LangChain + Groq（gpt-oss-20b）+ nomic-embed-text + FAISS 驱动。RAG 智能体从 7 篇预加载的政策文档中检索；SQL 智能体基于 SQLite 数据库生成真实 SQL；Supervisor 会把一个问题路由到一个或两个智能体，并综合出最终答案。",
+        subtitle: "三个 Tab 都是真实的、端到端系统，由 Python LangChain + Groq（gpt-oss-20b）+ nomic-embed-text + FAISS 驱动。RAG 智能体从 7 篇预加载的政策文档中检索；SQL 智能体基于 Mysql 数据库生成真实 SQL；Supervisor 会把一个问题路由到一个或两个智能体，并综合出最终答案。",
         tabs: {
             rag: "RAG 智能体",
             sql: "SQL 智能体",
             combined: "综合（Supervisor）"
         },
-        footer: "后端：FastAPI · LangChain · Groq · FAISS · SQLite"
+        footer: "后端：FastAPI · LangChain · Groq · FAISS · Mysql"
     }
 };
 function DemosSection() {

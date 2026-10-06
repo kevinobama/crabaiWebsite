@@ -89,11 +89,11 @@ const T: Record<Lang, {
       combined: "Ask a question that needs both documents and data",
     },
     indexed: (n) => `${n} doc${n === 1 ? "" : "s"} indexed`,
-    schema: "SQLite · 4 tables",
+    schema: "Mysql · 8 tables",
     placeholder: {
       rag: "Upload a document above, then ask anything about it…",
-      sql: "e.g. What was total revenue in 2025?",
-      combined: "e.g. Based on our policy, how many claims were denied for excluded windshield damage?",
+      sql: "e.g. Show total sales by product line for 2026",
+      combined: "e.g. According to our policy, which customers qualify for volume discounts based on their order history?",
     },
     helper: "Press Enter to send · Real LLM via Groq · LangChain + FAISS vector store",
     emptyTitle: {
@@ -124,9 +124,9 @@ const T: Record<Lang, {
         "How does the document upload pipeline work?",
       ],
       sql: [
-        "What was total revenue in 2025?",
-        "Show revenue by legal entity for 2025",
-        "How many claims were denied in 2025?",
+        "What was total revenue in 2026?",
+        "Show revenue by legal entity for 2026",
+        "How many claims were denied in 2026?",
         "List pending claims with their amounts",
       ],
       combined: [
@@ -158,10 +158,10 @@ const T: Record<Lang, {
       combined: "提一个需要同时用到文档和数据的问题",
     },
     indexed: (n) => `已索引 ${n} 篇文档`,
-    schema: "SQLite · 4 张表",
+    schema: "Mysql · 4 张表",
     placeholder: {
       rag: "在上方上传文档，然后就可以就文档提问…",
-      sql: "例如：2025 年总营收是多少？",
+      sql: "例如：2026 年总营收是多少？",
       combined: "例如：根据保单，有多少理赔因挡风玻璃除外条款被拒？",
     },
     helper: "按 Enter 发送 · 由 Groq 真实大模型驱动 · LangChain + FAISS 向量库",
@@ -193,9 +193,9 @@ const T: Record<Lang, {
         "文档上传流水线是怎么工作的？",
       ],
       sql: [
-        "2025 年总营收是多少？",
-        "按法人实体展示 2025 年的营收",
-        "2025 年有多少理赔被拒？",
+        "2026 年总营收是多少？",
+        "按法人实体展示 2026 年的营收",
+        "2026 年有多少理赔被拒？",
         "列出待处理理赔及金额",
       ],
       combined: [

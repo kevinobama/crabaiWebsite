@@ -26,7 +26,7 @@ this sandbox — pick whichever frontend you prefer.
           ┌──────────┴──────────┐
           ▼                     ▼
     RAG Agent                SQL Agent
-    FAISS      SQLite
+    FAISS      Mysql
     nomic-embed-text
           │
           ▼
@@ -131,7 +131,7 @@ the bilingual dictionaries at the top of each file.
 ## Customizing the demo content
 
 - **RAG documents**: edit `mini-services/crabai-api/app/rag_agent.py` → `DEMO_DOCS`
-- **SQL schema + data**: edit `mini-services/crabai-api/app/sql_agent.py` → `_seed_sqlite()`
+- **SQL schema + data**: edit `mini-services/crabai-api/app/sql_agent.py` → `_seed_Mysql()`
 - **Sample questions**: edit `download/crabai-vue/src/lib/strings.ts`
 
 ## Demo mode (no API keys)

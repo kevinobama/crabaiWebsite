@@ -35,7 +35,7 @@ using nginx + systemd + Let's Encrypt.
 | Vue static files | `/var/www/crabai/` | nginx |
 | FastAPI backend | `/opt/crabai-api/` | systemd (`crabai` user) |
 | FAISS index + uploads | `/opt/crabai-api/data/` | `crabai` user |
-| SQLite DB | `/opt/crabai-api/data/crabai_demo.db` | `crabai` user |
+| Mysql DB | `/opt/crabai-api/data/crabai_demo.db` | `crabai` user |
 | `.env` file | `/opt/crabai-api/.env` (mode 600) | `crabai` user |
 | nginx config | `/etc/nginx/sites-available/crabai.conf` | root |
 | SSL certs | `/etc/letsencrypt/live/<domain>/` | root |
@@ -144,7 +144,7 @@ It does NOT touch:
 - nginx config
 - SSL certs
 - FAISS index / uploaded docs
-- SQLite DB
+- Mysql DB
 
 ## Common operations
 
@@ -186,7 +186,7 @@ sudo tar -czf crabai-backup-$(date +%F).tar.gz /opt/crabai-api/data/
 This backs up:
 - `faiss_index/` — your embedded document vectors
 - `uploads/` — the original PDFs/TXTs
-- `crabai_demo.db` — the SQLite demo data (regenerable but doesn't hurt to back up)
+- `crabai_demo.db` — the Mysql demo data (regenerable but doesn't hurt to back up)
 
 It does NOT back up the LLM/embeddings API keys — those live in `/opt/crabai-api/.env` and should be backed up separately (e.g. in a password manager).
 

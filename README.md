@@ -17,7 +17,7 @@ my-project/
 │       │   ├── embeddings.py      # Nomic API + Hashing fallback
 │       │   ├── llm.py             # Groq + FakeLLM fallback
 │       │   ├── rag_agent.py       # FAISS + preloaded docs
-│       │   ├── sql_agent.py       # LangChain SQL toolkit + SQLite
+│       │   ├── sql_agent.py       # LangChain SQL toolkit + Mysql
 │       │   └── supervisor.py      # Routes questions to RAG/SQL/both
 │       └── .env.example
 └── download/
@@ -51,7 +51,7 @@ my-project/
           ┌──────────┴──────────┐
           ▼                     ▼
     RAG Agent                SQL Agent
-    FAISS      SQLite (seeded)
+    FAISS      Mysql (seeded)
     nomic-embed-text
           │
           ▼
@@ -106,13 +106,13 @@ meaningful).
 | Tab | Endpoint | What happens |
 |---|---|---|
 | **RAG Agent** | `POST /api/rag/chat` | Retrieves top-3 chunks from FAISS (7 preloaded policy docs), feeds them to Groq, returns answer with cited sources |
-| **SQL Agent** | `POST /api/sql/chat` | LangChain SQL toolkit reads the SQLite schema, generates SQL via Groq, executes read-only, returns SQL + rows + summary |
+| **SQL Agent** | `POST /api/sql/chat` | LangChain SQL toolkit reads the Mysql schema, generates SQL via Groq, executes read-only, returns SQL + rows + summary |
 | **Combined** | `POST /api/combined/chat` | Supervisor routes the question (RAG / SQL / both), calls sub-agents, synthesizes a single answer with both sources and SQL |
 
 ## Customizing the demo
 
 - **RAG documents**: edit `mini-services/crabai-api/app/rag_agent.py` → `DEMO_DOCS`
-- **SQL schema + data**: edit `mini-services/crabai-api/app/sql_agent.py` → `_seed_sqlite()`
+- **SQL schema + data**: edit `mini-services/crabai-api/app/sql_agent.py` → `_seed_Mysql()`
 - **Sample questions**: edit the `T` dictionary at the top of `src/components/sections/agent-demo.tsx` (Next.js) or `download/crabai-vue/src/lib/strings.ts` (Vue)
 
 ## Tech stack
@@ -125,7 +125,7 @@ meaningful).
 | LLM | Groq `openai/gpt-oss-20b` | Fast, free, OpenAI-API-compatible |
 | Vector store | `FAISS` | Zero setup, perfect for demo |
 | Embeddings | `nomic-embed-text` (Nomic API or hashing fallback) | Matches stack spec |
-| SQL | SQLite + LangChain SQL toolkit | Self-contained, no external DB |
+| SQL | Mysql + LangChain SQL toolkit | Self-contained, no external DB |
 | Streaming | SSE | Simpler than WebSocket for one-way streaming |
 
 
@@ -222,12 +222,12 @@ mini-services/crabai-api/
 │   ├── embeddings.py    ← Cloudflare / Nomic / Hashing
 │   ├── llm.py           ← Groq (gpt-oss-20b)
 │   ├── rag_agent.py     ← FAISS + upload + retrieval  ← RAG code lives here
-│   ├── sql_agent.py     ← LangChain SQL toolkit + SQLite
+│   ├── sql_agent.py     ← LangChain SQL toolkit + Mysql
 │   └── supervisor.py    ← Routes to RAG/SQL/both
 ├── data/
 │   ├── faiss_index/     ← created on first upload (persistent)
 │   ├── uploads/         ← uploaded files saved here
-│   └── crabai_demo.db    ← SQLite for SQL agent
+│   └── crabai_demo.db    ← Mysql for SQL agent
 ├── .env.example         ← copy to .env, add your keys
 └── pyproject.toml       ← Python deps
 ```

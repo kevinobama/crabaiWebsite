@@ -41,7 +41,7 @@ def _route(question: str) -> str:
     q = question.lower()
     sql_signals = [
         "how many", "count", "total", "sum", "revenue", "by year",
-        "by entity", "by legal", "2024", "2025", "last year",
+        "by entity", "by legal", "2024", "2026", "last year",
         "average", "group by", "top", "rank", "percent", "amount",
     ]
     rag_signals = [
